@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ek Gelir Akademi · Kişisel Marka Sistemi: Kalabalıkta Fark Edil</title>
+<meta name="description" content="Ek Gelir Akademi — Kişisel Marka Sistemi: Kalabalıkta Fark Edil. 10 bölümlük premium interaktif kişisel marka eğitimi." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --ega-bg: #07070a;
+  --ega-bg-2: #0b0b10;
+  --ega-ink: #efe7d4;
+  --ega-ink-soft: #b8b3a4;
+  --ega-ink-muted: #7a7464;
+  --ega-line: rgba(212, 175, 55, 0.16);
+  --ega-line-strong: rgba(212, 175, 55, 0.32);
+  --ega-gold: #d4af37;
+  --ega-gold-soft: #e9c66b;
+  --ega-gold-deep: #a87f1c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--ega-bg); }
+body {
+  font-family: "Manrope", system-ui, sans-serif;
+  color: var(--ega-ink);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+::selection { background: rgba(212,175,55,0.35); color: #fff; }
+button { font-family: inherit; cursor: pointer; }
+
+.ega-shell { position: relative; height: 100vh; width: 100vw; overflow: hidden; isolation: isolate; }
+.ega-bg-grain {
+  position: absolute; inset: 0; pointer-events: none; z-index: -2; opacity: .6;
+  background-image:
+    radial-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 4px 4px, 9px 9px;
+  background-position: 0 0, 2px 2px;
+}
+.ega-bg-glow {
+  position: absolute; inset: 0; pointer-events: none; z-index: -1;
+  background:
+    radial-gradient(60% 50% at 12% 18%, rgba(212,175,55,0.10), transparent 60%),
+    radial-gradient(50% 40% at 88% 82%, rgba(168,127,28,0.08), transparent 60%),
+    linear-gradient(180deg, #07070a 0%, #050507 100%);
+}
+.ega-layout { display: grid; grid-template-columns: 320px 1fr; height: 100vh; }
+@media (max-width: 1024px) { .ega-layout { grid-template-columns: 1fr; } }
+
+.ega-topbar {
+  display: none; align-items: center; gap: 12px;
+  padding: 14px 18px; border-bottom: 1px solid var(--ega-line);
+  background: rgba(7,7,10,0.85); backdrop-filter: blur(14px);
+  position: sticky; top: 0; z-index: 30;
+}
+@media (max-width: 1024px) { .ega-topbar { display: flex; } }
+.ega-icon-btn {
+  width: 38px; height: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 10px; border: 1px solid var(--ega-line);
+  background: rgba(255,255,255,0.02); color: var(--ega-ink);
+  transition: all .2s ease;
+}
+.ega-icon-btn:hover { border-color: var(--ega-line-strong); color: var(--ega-gold-soft); }
+.ega-brand-mini { display: flex; align-items: center; gap: 10px; }
+.ega-brand-mark {
+  font-family: "Fraunces", serif; font-weight: 600; letter-spacing: 0.18em; font-size: 14px;
+  background: linear-gradient(180deg, var(--ega-gold-soft), var(--ega-gold-deep));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.ega-brand-name { font-size: 13px; color: var(--ega-ink-soft); letter-spacing: .04em; }
+.ega-progress-mini { flex:1; height:2px; background: rgba(212,175,55,0.10); border-radius:2px; overflow:hidden; }
+.ega-progress-mini-fill { height:100%; background: linear-gradient(90deg, var(--ega-gold-deep), var(--ega-gold-soft)); transition: width .5s ease; }
+
+.ega-sidebar {
+  height: 100vh; border-right: 1px solid var(--ega-line);
+  background: linear-gradient(180deg, rgba(212,175,55,0.04), transparent 30%), rgba(7,7,10,0.6);
+  backdrop-filter: blur(20px);
+  display: flex; flex-direction: column; position: relative; z-index: 20;
+}
+.ega-brand { padding: 28px 26px 22px; border-bottom: 1px solid var(--ega-line); position: relative; }
+.ega-brand::after {
+  content: ""; position: absolute; left: 26px; right: 26px; bottom: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ega-gold), transparent); opacity: .5;
+}
+.ega-brand-eyebrow {
+  font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.32em;
+  color: var(--ega-gold-deep); text-transform: uppercase;
+}
+.ega-brand-title {
+  font-family: "Fraunces", serif; font-weight: 500; font-size: 28px; line-height: 1.05;
+  margin-top: 10px; letter-spacing: -0.01em; color: var(--ega-ink);
+}
+.ega-brand-title em {
+  font-style: italic;
+  background: linear-gradient(180deg, var(--ega-gold-soft), var(--ega-gold-deep));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.ega-brand-sub { margin-top: 12px; font-size: 12.5px; color: var(--ega-ink-muted); line-height: 1.5; }
+.ega-nav { flex: 1; overflow-y: auto; padding: 16px 14px 24px; scrollbar-width: thin; scrollbar-color: rgba(212,175,55,0.25) transparent; }
+.ega-nav::-webkit-scrollbar { width: 6px; }
+.ega-nav::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.2); border-radius: 3px; }
+.ega-nav-label {
+  font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.28em;
+  color: var(--ega-ink-muted); padding: 6px 12px 14px; text-transform: uppercase;
+}
+.ega-nav-item {
+  width: 100%; display: grid; grid-template-columns: 32px 1fr; align-items: center; gap: 12px;
+  padding: 11px 12px; border-radius: 10px; background: transparent; border: 1px solid transparent;
+  color: var(--ega-ink-soft); text-align: left;
+  transition: background .25s, color .25s, border-color .25s; margin-bottom: 2px;
+}
+.ega-nav-item:hover { background: rgba(212,175,55,0.05); color: var(--ega-ink); }
+.ega-nav-item .num { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ega-ink-muted); }
+.ega-nav-item .label { font-size: 14px; line-height: 1.3; }
+.ega-nav-item.active {
+  background: linear-gradient(180deg, rgba(212,175,55,0.10), rgba(212,175,55,0.02));
+  border-color: var(--ega-line-strong); color: var(--ega-ink);
+}
+.ega-nav-item.active .num { color: var(--ega-gold-soft); }
+.ega-nav-item.active .label { color: #fff; }
+.ega-sidebar-foot {
+  padding: 18px 26px 22px; border-top: 1px solid var(--ega-line);
+  font-size: 11px; color: var(--ega-ink-muted); letter-spacing: 0.04em;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ega-sidebar-foot .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--ega-gold); box-shadow: 0 0 12px var(--ega-gold); }
+@media (max-width: 1024px) {
+  .ega-sidebar {
+    position: fixed; inset: 0 30% 0 0; height: 100vh; z-index: 40;
+    transform: translateX(-100%); transition: transform .3s ease;
+  }
+  .ega-sidebar.open { transform: translateX(0); }
+}
+
+.ega-main { position: relative; height: 100vh; display: flex; flex-direction: column; }
+.ega-progress-bar { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: rgba(212,175,55,0.08); z-index: 10; }
+.ega-progress-fill {
+  height: 100%; background: linear-gradient(90deg, var(--ega-gold-deep), var(--ega-gold-soft), var(--ega-gold));
+  box-shadow: 0 0 14px var(--ega-gold); transition: width .5s cubic-bezier(.4,0,.2,1);
+}
+.ega-scroll { flex: 1; overflow-y: auto; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: rgba(212,175,55,0.2) transparent; }
+.ega-scroll::-webkit-scrollbar { width: 8px; }
+.ega-scroll::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.18); border-radius: 4px; }
+
+.ega-section { max-width: 1080px; margin: 0 auto; padding: 72px 56px 40px; animation: section-in .55s cubic-bezier(.2,.7,.2,1) both; }
+@media (max-width: 768px) { .ega-section { padding: 40px 22px 20px; } }
+@keyframes section-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.ega-section-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--ega-gold); margin-bottom: 18px;
+}
+.ega-section-eyebrow::before { content: ""; width: 36px; height: 1px; background: linear-gradient(90deg, transparent, var(--ega-gold)); }
+.ega-section-title {
+  font-family: "Fraunces", serif; font-weight: 400;
+  font-size: clamp(34px, 4vw, 54px); line-height: 1.04; letter-spacing: -0.02em; color: #fff; margin-bottom: 18px;
+}
+.ega-section-title em {
+  font-style: italic; font-weight: 500;
+  background: linear-gradient(180deg, #f3dca0 0%, var(--ega-gold) 60%, var(--ega-gold-deep) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.ega-section-lead { font-size: 17px; line-height: 1.65; color: var(--ega-ink-soft); max-width: 780px; margin-bottom: 38px; }
+.ega-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--ega-line-strong), transparent); margin: 44px 0; }
+
+.ega-h3 {
+  font-family: "Fraunces", serif; font-weight: 500; font-size: 24px; line-height: 1.25;
+  letter-spacing: -0.01em; color: #fff; margin: 28px 0 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.ega-h3-bar { width: 4px; height: 22px; background: var(--ega-gold); border-radius: 2px; box-shadow: 0 0 12px rgba(212,175,55,0.6); }
+.ega-p { color: var(--ega-ink-soft); font-size: 15.5px; line-height: 1.7; margin: 0 0 14px; }
+.ega-p strong { color: var(--ega-ink); font-weight: 600; }
+.ega-p em { color: var(--ega-gold-soft); font-style: normal; }
+
+.ega-callout {
+  margin: 22px 0; padding: 22px 24px; border-radius: 14px;
+  background: linear-gradient(180deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02));
+  border: 1px solid var(--ega-line-strong); position: relative; overflow: hidden;
+}
+.ega-callout::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--ega-gold-soft), var(--ega-gold-deep));
+}
+.ega-callout-title {
+  font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--ega-gold); margin-bottom: 10px;
+}
+.ega-callout-body { color: var(--ega-ink); font-size: 15px; line-height: 1.65; }
+
+.ega-stats { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 24px 0; }
+.ega-stat {
+  padding: 22px; border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  border: 1px solid var(--ega-line);
+  transition: transform .3s, border-color .3s, background .3s;
+}
+.ega-stat:hover {
+  transform: translateY(-3px); border-color: var(--ega-line-strong);
+  background: linear-gradient(180deg, rgba(212,175,55,0.06), rgba(212,175,55,0.01));
+}
+.ega-stat-value {
+  font-family: "Fraunces", serif; font-weight: 500; font-size: 36px; line-height: 1;
+  background: linear-gradient(180deg, #f3dca0 0%, var(--ega-gold) 80%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.ega-stat-label { margin-top: 10px; color: var(--ega-ink-soft); font-size: 13.5px; line-height: 1.4; }
+
+.ega-cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin: 22px 0; }
+.ega-card {
+  padding: 24px 22px; border-radius: 14px; border: 1px solid var(--ega-line);
+  background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0));
+  transition: all .3s; position: relative; overflow: hidden;
+}
+.ega-card::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(120% 80% at 0% 0%, rgba(212,175,55,0.10), transparent 50%);
+  opacity: 0; transition: opacity .35s; pointer-events: none;
+}
+.ega-card:hover { border-color: var(--ega-line-strong); transform: translateY(-3px); }
+.ega-card:hover::before { opacity: 1; }
+.ega-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.ega-card-num {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--ega-line-strong); color: var(--ega-gold);
+  font-family: "JetBrains Mono", monospace; font-size: 12px;
+}
+.ega-card-title { font-family: "Fraunces", serif; font-weight: 500; font-size: 18px; color: #fff; }
+.ega-card-body { color: var(--ega-ink-soft); font-size: 14px; line-height: 1.6; }
+
+.ega-steps { margin: 24px 0; }
+.ega-step {
+  display: grid; grid-template-columns: 56px 1fr; gap: 18px;
+  padding: 20px 0; border-bottom: 1px solid var(--ega-line);
+}
+.ega-step:last-child { border-bottom: 0; }
+.ega-step-num {
+  font-family: "Fraunces", serif; font-size: 36px; line-height: 1; font-weight: 500;
+  background: linear-gradient(180deg, var(--ega-gold-soft), var(--ega-gold-deep));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.ega-step-title { font-family: "Fraunces", serif; font-weight: 500; color: #fff; font-size: 18.5px; margin-bottom: 6px; }
+.ega-step-body { color: var(--ega-ink-soft); font-size: 14.5px; line-height: 1.65; }
+
+.ega-table { margin: 22px 0; border: 1px solid var(--ega-line); border-radius: 14px; overflow: hidden; }
+.ega-table-row { display: grid; align-items: stretch; }
+.ega-table-row > div {
+  padding: 14px 18px; border-right: 1px solid var(--ega-line);
+  font-size: 14px; color: var(--ega-ink-soft); line-height: 1.55;
+}
+.ega-table-row > div:last-child { border-right: 0; }
+.ega-table-row + .ega-table-row { border-top: 1px solid var(--ega-line); }
+.ega-table-head > div {
+  background: linear-gradient(180deg, rgba(212,175,55,0.12), rgba(212,175,55,0.04));
+  color: var(--ega-gold-soft);
+  font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+}
+
+.ega-prosncons { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; margin: 22px 0; }
+@media (max-width: 768px) { .ega-prosncons { grid-template-columns: 1fr; } }
+.ega-pc { border: 1px solid var(--ega-line); border-radius: 14px; padding: 20px 22px; background: rgba(255,255,255,0.015); }
+.ega-pc-title {
+  font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ega-gold); margin-bottom: 12px;
+}
+.ega-pc.con .ega-pc-title { color: #c9826a; }
+.ega-pc ul { list-style: none; }
+.ega-pc li {
+  padding: 8px 0 8px 22px; position: relative;
+  color: var(--ega-ink-soft); font-size: 14px; line-height: 1.55;
+  border-bottom: 1px dashed rgba(212,175,55,0.08);
+}
+.ega-pc li:last-child { border-bottom: 0; }
+.ega-pc li::before {
+  content: ""; position: absolute; left: 4px; top: 16px;
+  width: 8px; height: 8px; border-radius: 2px;
+  background: var(--ega-gold); transform: rotate(45deg);
+  box-shadow: 0 0 8px rgba(212,175,55,0.5);
+}
+.ega-pc.con li::before { background: #c9826a; box-shadow: 0 0 8px rgba(201,130,106,0.4); }
+
+.ega-vaka {
+  margin: 26px 0; padding: 26px 28px; border-radius: 16px;
+  background: linear-gradient(180deg, rgba(212,175,55,0.04), transparent 80%), rgba(255,255,255,0.02);
+  border: 1px solid var(--ega-line);
+}
+.ega-vaka-label {
+  font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--ega-gold); margin-bottom: 14px;
+}
+.ega-vaka-title { font-family: "Fraunces", serif; font-weight: 500; font-size: 22px; color: #fff; margin-bottom: 14px; }
+.ega-vaka-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 768px) { .ega-vaka-grid { grid-template-columns: 1fr; } }
+.ega-vaka-col h5 {
+  font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ega-gold-deep); margin-bottom: 8px;
+}
+.ega-vaka-col p { color: var(--ega-ink-soft); font-size: 14px; line-height: 1.6; }
+
+.ega-takeaways {
+  border: 1px solid var(--ega-line-strong); border-radius: 16px; padding: 26px 28px;
+  background: linear-gradient(180deg, rgba(212,175,55,0.06), rgba(212,175,55,0.01));
+  margin: 26px 0;
+}
+.ega-takeaways h4 {
+  font-family: "Fraunces", serif; font-weight: 500; font-size: 22px; color: #fff; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.ega-takeaways h4 .ega-h3-bar { width: 6px; height: 24px; }
+.ega-takeaways ol { list-style: none; counter-reset: tk; }
+.ega-takeaways li {
+  counter-increment: tk; padding: 12px 0 12px 44px; position: relative;
+  color: var(--ega-ink); font-size: 14.5px; line-height: 1.65;
+  border-bottom: 1px dashed rgba(212,175,55,0.10);
+}
+.ega-takeaways li:last-child { border-bottom: 0; }
+.ega-takeaways li::before {
+  content: counter(tk, decimal-leading-zero);
+  position: absolute; left: 0; top: 11px;
+  font-family: "JetBrains Mono", monospace; font-size: 12px;
+  color: var(--ega-gold); letter-spacing: 0.04em;
+}
+
+.ega-hero { padding: 64px 56px 60px; max-width: 1080px; margin: 0 auto; }
+@media (max-width: 768px) { .ega-hero { padding: 40px 22px 30px; } }
+.ega-hero-mark {
+  font-family: "JetBrains Mono", monospace; letter-spacing: 0.36em; color: var(--ega-gold);
+  font-size: 11px; text-transform: uppercase; margin-bottom: 22px;
+}
+.ega-hero-title {
+  font-family: "Fraunces", serif; font-weight: 300;
+  font-size: clamp(48px, 7vw, 88px); line-height: 0.98; letter-spacing: -0.035em; color: #fff;
+}
+.ega-hero-title em {
+  font-style: italic; font-weight: 400;
+  background: linear-gradient(180deg, #f3dca0 0%, var(--ega-gold) 50%, var(--ega-gold-deep) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.ega-hero-sub { font-size: 18px; line-height: 1.6; color: var(--ega-ink-soft); max-width: 720px; margin-top: 28px; }
+.ega-hero-meta {
+  margin-top: 36px; display: flex; flex-wrap: wrap; gap: 28px;
+  font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ega-ink-muted);
+}
+.ega-hero-meta span strong { color: var(--ega-gold-soft); font-weight: 500; }
+.ega-hero-rule { height: 1px; background: linear-gradient(90deg, transparent, var(--ega-line-strong), transparent); margin: 44px 0; }
+.ega-toc { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 12px; }
+.ega-toc-item {
+  display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: center;
+  padding: 14px 16px; border-radius: 12px; border: 1px solid var(--ega-line);
+  background: rgba(255,255,255,0.02); transition: all .25s;
+}
+.ega-toc-item:hover {
+  border-color: var(--ega-line-strong);
+  background: linear-gradient(180deg, rgba(212,175,55,0.06), rgba(212,175,55,0));
+  transform: translateY(-2px);
+}
+.ega-toc-num { color: var(--ega-gold); font-family: "JetBrains Mono", monospace; font-size: 12px; }
+.ega-toc-label { color: var(--ega-ink); font-size: 14.5px; font-weight: 500; }
+
+.ega-pager {
+  max-width: 1080px; margin: 30px auto 0; padding: 0 56px;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px;
+}
+@media (max-width: 768px) { .ega-pager { padding: 0 22px; } }
+.ega-pager-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 18px; border-radius: 12px; border: 1px solid var(--ega-line);
+  background: rgba(255,255,255,0.02); color: var(--ega-ink-soft);
+  font-size: 13.5px; transition: all .25s;
+}
+.ega-pager-btn:hover:not(:disabled) {
+  border-color: var(--ega-line-strong);
+  background: linear-gradient(180deg, rgba(212,175,55,0.06), rgba(212,175,55,0));
+  color: #fff;
+}
+.ega-pager-btn:disabled { opacity: .35; cursor: not-allowed; }
+.ega-pager-next { justify-self: end; }
+.ega-pager-count { font-family: "JetBrains Mono", monospace; color: var(--ega-gold-soft); font-size: 12px; letter-spacing: 0.16em; }
+
+.ega-footer {
+  max-width: 1080px; margin: 60px auto 40px; padding: 0 56px;
+  text-align: center; color: var(--ega-ink-muted); font-size: 12px; letter-spacing: 0.08em;
+}
+.ega-foot-rule { height: 1px; background: linear-gradient(90deg, transparent, var(--ega-line-strong), transparent); margin-bottom: 22px; }
+.ega-foot-mark {
+  background: linear-gradient(180deg, var(--ega-gold-soft), var(--ega-gold-deep));
+  -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600;
+}
+.ega-foot-sep { margin: 0 10px; opacity: .6; }
+.ega-foot-sub { margin-top: 8px; opacity: 0.7; }
+</style>
+</head>
+<body>
+<div class="ega-shell">
+  <div class="ega-bg-grain"></div>
+  <div class="ega-bg-glow"></div>
+
+  <header class="ega-topbar">
+    <button class="ega-icon-btn" id="menuToggle" aria-label="Menü">☰</button>
+    <div class="ega-brand-mini">
+      <span class="ega-brand-mark">EGA</span>
+      <span class="ega-brand-name">Ek Gelir Akademi</span>
+    </div>
+    <div class="ega-progress-mini"><div class="ega-progress-mini-fill" id="progressMini"></div></div>
+  </header>
+
+  <div class="ega-layout">
+    <aside class="ega-sidebar" id="sidebar">
+      <div class="ega-brand">
+        <div class="ega-brand-eyebrow">Premium Sunum</div>
+        <h1 class="ega-brand-title">Ek Gelir <em>Akademi</em></h1>
+        <p class="ega-brand-sub">Kişisel Marka Sistemi: Kalabalıkta Fark Edil. 10 bölümlük interaktif kişisel marka çalışması.</p>
+      </div>
+      <nav class="ega-nav" id="nav" aria-label="Bölümler">
+        <div class="ega-nav-label">Bölümler</div>
+      </nav>
+      <div class="ega-sidebar-foot"><span>Edisyon · 2026</span><span class="dot"></span></div>
+    </aside>
+
+    <main class="ega-main">
+      <div class="ega-progress-bar"><div class="ega-progress-fill" id="progressFill"></div></div>
+      <div class="ega-scroll" id="scroll">
+        <div id="sectionContainer"></div>
+        <nav class="ega-pager">
+          <button class="ega-pager-btn" id="prevBtn">‹ <span id="prevLabel">Başlangıç</span></button>
+          <div class="ega-pager-count" id="pagerCount">01 / 11</div>
+          <button class="ega-pager-btn ega-pager-next" id="nextBtn"><span id="nextLabel">Sonraki</span> ›</button>
+        </nav>
+        <footer class="ega-footer">
+          <div class="ega-foot-rule"></div>
+          <p>
+            <span class="ega-foot-mark">Ek Gelir Akademi</span>
+            <span class="ega-foot-sep">·</span>
+            Kişisel Marka Sistemi: Kalabalıkta Fark Edil · Premium Sunum Serisi
+          </p>
+          <p class="ega-foot-sub">Bu sunum eğitim ve bilgilendirme amaçlıdır.</p>
+        </footer>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+/* ============ İçerik ============ */
+const SECTIONS = [
+  {
+    id: "intro", shortTitle: "Açılış", hero: true,
+    toc: [
+      "Marka Zihniyeti · Neden Fark Edilmelisin",
+      "Kimlik ve Konumlandırma · Sen Kimsin",
+      "Niş ve Otorite · Uzman Değil Tanınan Ol",
+      "Marka Sesi ve Görsel Kimlik · Tutarlılık",
+      "Platform Seçimi · Nerede Görün, Nerede Sus",
+      "İçerik Sistemi · Otoriteyi İnşa Eden Kalıp",
+      "Kişisel Hikaye · Duygusal Bağın Motoru",
+      "Networking ve İşbirliği · Görünürlüğü Katla",
+      "Monetizasyon · Markadan Gelir Kanalları",
+      "Uzun Vade · Sürdürülebilirlik ve İtibar"
+    ]
+  },
+
+  /* 1 */
+  { id:"zihniyet", shortTitle:"Marka Zihniyeti",
+    title:"Marka <em>Zihniyeti</em> · Neden Fark Edilmelisin",
+    lead:"Kişisel marka lüks değildir; artık kariyerinin, gelirinin, iş fırsatlarının çatısıdır. 100 rakip aynı işi yapıyor, sadece 5-6'sı hatırlanıyor. Bu bölüm hatırlananların neden hatırlandığını, senin de nasıl hatırlanır olabileceğini kurar.",
+    blocks:[
+      { type:"h", text:"Kişisel Marka Nedir · Ve Ne Değildir?" },
+      { type:"p", text:"Kişisel marka, sen odada değilken insanların senin hakkında söylediği şeydir. <strong>İtibar + tanınırlık + spesifik değer</strong> üçlüsüdür. Instagram takipçisi değildir, güzel bir logo değildir, mükemmel içerik değildir. Bir uzmanlığın etrafında biriken güvendir. Doğru kurulduğunda; iş sana gelir, fiyat sen belirlersin, hedefsen kabul edilirsin." },
+      { type:"callout", title:"Bezos Prensibi", text:"Jeff Bezos: <strong>'Marka, sen odada yokken insanların senin hakkında söylediği şeydir.'</strong> Bu tanım kişisel markanın gerçek testidir: senin adını duyduğunda insanların kafasında ne canlanıyor? Cevabı boşluksa; markan yok, sadece bir profesyonel yaşıyor." },
+      { type:"h", text:"Neden Şimdi Kişisel Marka?" },
+      { type:"cards", items:[
+        { title:"Rekabet Yoğunlaştı", body:"Her sektörde binlerce alternatif; teknik yetkinlik artık yeterli değil." },
+        { title:"Şirket Sadakati Bitti", body:"Kariyerin sana ait olmalı; şirketten şirkete taşınabilen değer." },
+        { title:"Dijital Görünürlük Zorunlu", body:"Google'da adın aranıyor; ilk 3 sonuçta ne çıkıyor, marka odur." },
+        { title:"Fiyat Farklılaşması", body:"Aynı iş bir yerde 5.000 TL, diğerinde 25.000 TL — fark marka değeri." },
+        { title:"AI Yükselişi", body:"Teknik iş AI'a devrediliyor; insanla insan ilişkisi ve marka değeri kaldı." },
+        { title:"Fırsat Kanalı", body:"İş, danışmanlık, konuşmacılık, kitap, ürün — hepsi görünür olana geliyor." }
+      ]},
+      { type:"h", text:"3 Sonuç · Marka Sistemi Kurulduğunda" },
+      { type:"stats", items:[
+        { value:"3-5×", label:"Marka değerine sahip profesyonelin ücret farkı" },
+        { value:"%84", label:"İşe alım kararlarında adayın dijital ayak izinin etkisi" },
+        { value:"12-24 ay", label:"Ciddi bir kişisel markanın oturma süresi" },
+        { value:"%7", label:"Sürekli ve tutarlı içerik üreten profesyonelin oranı" }
+      ]},
+      { type:"h", text:"3 Profesyonel Profili · Nerede Duruyorsun?" },
+      { type:"table",
+        headers:["Profil","Tanım","Sonuç"],
+        rows:[
+          ["Gizli Uzman","İyi iş yapar, kimse bilmez","Rekabette görünmez, hep aynı ücret"],
+          ["Aktif Profesyonel","LinkedIn'de var, birkaç post atar","Fark eder, tanınır olmaz"],
+          ["Kişisel Marka","Sürekli otorite üretir, sistemli görünür","Fırsat sana gelir, fiyatı sen belirlersin"]
+        ]
+      },
+      { type:"callout", title:"Sessiz Uzman Yanılgısı", text:"'İşimi iyi yaparsam kendini gösterir' zihniyeti 2000'lerde kalmıştır. Bugün <strong>işini iyi yapan + kendini anlatan</strong> kazanıyor. İkincisi olmadan birincisi yalnız çalışır. Bu 'kendini pazarlamak' değildir; <em>değerini görünür kılmaktır</em>." },
+      { type:"h", text:"Kişisel Marka Denklemi" },
+      { type:"steps", items:[
+        { title:"Uzmanlık (Ne Biliyorsun?)", body:"Bir konuda derinleşmen. 'Her şey' değil, spesifik alan." },
+        { title:"Görünürlük (Kim Görüyor?)", body:"Doğru kitle senin varlığından haberdar olmalı." },
+        { title:"Tutarlılık (Ne Kadar Sürede?)", body:"3 ay görünüp kaybolan yok olur; yıllar süren birikir." },
+        { title:"Özgünlük (Neden Sen?)", body:"Aynı işi yapan 1.000 kişi arasında farkın ne?" },
+        { title:"Bağlantı (Neden Sana Güvenilir?)", body:"İnsanla insan ilişkisi; sadece bilgi değil, karakter." }
+      ]},
+      { type:"h", text:"En Yaygın 5 Kişisel Marka Hatası" },
+      { type:"prosncons",
+        pros:["Bir uzmanlık alanı seçmek","Sürekli değer üreten içerik","Kişisel hikayeni paylaşmak","5-10 yıllık uzun vadeli düşünce","Karakter + uzmanlık dengesi"],
+        cons:["Herkese hitap etmeye çalışmak","3 ay içerik atıp durmak","Sadece işi anlatmak, insanı saklamak","Takipçi sayısını başarı sanmak","İş bulmak için değil, gösteriş için üretmek"]
+      },
+      { type:"vaka",
+        title:"IK Uzmanı · 2 Yılda Sessiz Uzmandan Sektör İsmine",
+        baglam:"12 yıl kurumsal İK deneyimi, 3 farklı şirkette müdür seviyesinde. Hiçbir dijital varlık yok. LinkedIn 340 bağlantı, 0 post. İş değişikliğinde her seferinde headhunter aramak zorunda.",
+        analiz:"2 yıllık plan: LinkedIn haftada 3 uzmanlık postu + ayda 1 uzun makale + 3 ayda 1 konferans konuşması. Konu: 'Yeni yönetici ilk 90 gün'. Aynı konuda özel bir bakış açısı geliştirdi.",
+        sonuc:"18 ay sonra: LinkedIn 14 bin bağlantı, ayda 3-5 iş teklifi, sektör dergisinde köşe yazısı, iki yayınevinden kitap teklifi. Aynı deneyim, aynı yetkinlik — sadece <em>görünür ve tanınır</em> oldu. Kişisel marka onun kariyerinin çatısı hâline geldi."
+      },
+      { type:"takeaways", items:[
+        "Kişisel marka bir lüks değil; kariyerin, gelirinin, fırsatlarının çatısıdır.",
+        "Marka = sen odada değilken senin hakkında söylenen şeydir.",
+        "5 temel: uzmanlık + görünürlük + tutarlılık + özgünlük + bağlantı.",
+        "Sessiz uzman yanılgısı 2000'lerde kaldı; işini yap + kendini anlat.",
+        "İyi bir marka 12-24 ayda oturur; kısa vadeli düşünce her şeyi bozar."
+      ]}
+    ]
+  },
+
+  /* 2 */
+  { id:"kimlik", shortTitle:"Kimlik ve Konumlandırma",
+    title:"Kimlik ve <em>Konumlandırma</em> · Sen Kimsin",
+    lead:"Herkes bir şey olduğunda sen 'bir şey' değil, 'o şey' olmalısın. Kimlik ve konumlandırma; senin kim olduğunun, ne yaptığının, neden farklı olduğunun tek cümlelik yanıtıdır. Bu cümle netleşmedikçe hiçbir içerik gerçek anlamda satmaz.",
+    blocks:[
+      { type:"h", text:"Konumlandırma Nedir?" },
+      { type:"p", text:"Konumlandırma; kitlenin senin adını duyduğunda kafasında hangi ilk cümlenin oluştuğudur. Marketing gurusu Al Ries: <strong>'Konumlandırma pazarda yaptığın şey değil; tüketicinin zihninde yaptığın şeydir.'</strong> Sen ne olduğunu düşünürsen düşün — konumlandırma <em>başkasının kafasındaki yerdir</em>." },
+      { type:"callout", title:"Tek Cümle Testi", text:"Bir yabancı sana 'Ne iş yapıyorsun?' diye sorduğunda <strong>tek cümleyle</strong> hem ne yaptığın hem farkın anlaşılıyor mu? 'Danışmanım' değil; 'Yeni yöneticilerin ilk 90 günü için sistem kuran koçum'. Fark; birincisi 1 milyon kişi, ikincisi 1 kişi." },
+      { type:"h", text:"Kimlik Kanvası · 7 Boyut" },
+      { type:"cards", items:[
+        { title:"Kim?", body:"Adın, unvanın, dünyaya nasıl sunduğun." },
+        { title:"Ne Yapıyor?", body:"Spesifik olarak hangi sorunu çözüyorsun?" },
+        { title:"Kime?", body:"İdeal kitlen — dar, spesifik, isim verebileceğin." },
+        { title:"Neden?", body:"Bu işi yapma sebebin, ardındaki hikaye." },
+        { title:"Nasıl?", body:"Yöntemin, farklı yaklaşımın, çerçeven." },
+        { title:"Ne Sonuç?", body:"Kitlen için somut, ölçülebilir dönüşüm." },
+        { title:"Kanıt?", body:"Neden sana güvenilmeli — deneyim, referans, sonuç." }
+      ]},
+      { type:"h", text:"Konumlandırma Cümlesi Formülü" },
+      { type:"steps", items:[
+        { title:"[Kime]", body:"'İlk 5 yıllık yazılım geliştiricilere'" },
+        { title:"[Ne Sorunu Yaşayan]", body:"'kariyer platosunda takılan'" },
+        { title:"[Hangi Sonucu]", body:"'12 ayda senior seviyeye geçiş için'" },
+        { title:"[Nasıl]", body:"'gerçek proje portföyü + görünürlük sistemi kuran'" },
+        { title:"[Kimsin]", body:"'kariyer koçuyum.'" }
+      ]},
+      { type:"p", text:"Tam cümle: <em>'İlk 5 yıllık yazılım geliştiricilerin kariyer platosunda takıldığı yerde, 12 ayda senior seviyeye geçebilecek gerçek proje portföyü + görünürlük sistemi kuran kariyer koçuyum.'</em> — Bu cümle 25-30 kelime uzunluğunda olabilir; kısaltılınca zenginlik kaybolur, uzatılınca ilgi kaçar." },
+      { type:"h", text:"3 Tür Konumlandırma · Hangisi Sana Uyar?" },
+      { type:"table",
+        headers:["Tür","Nasıl Kurar","Örnek"],
+        rows:[
+          ["Uzman","Spesifik alan derinliği","Vergi hukuku uzmanı"],
+          ["Yöntemli","Kendine ait çerçeve","5 Adımlı Satış Sistemi kurucusu"],
+          ["Kültürel","Değer ve karakter","Etikkurulu duruşuyla yatırım danışmanı"],
+          ["Coğrafi","Bölge sahipliği","İzmir'in en tanınan dijital marka koçu"],
+          ["Sektörel","Belirli endüstriye özel","Restoranlara özel finansal danışman"],
+          ["Segment","Belirli müşteri profili","Kadın girişimcilere özel PR danışmanı"]
+        ]
+      },
+      { type:"h", text:"Farklılık Analizi · 3 Sütun Testi" },
+      { type:"steps", items:[
+        { title:"Herkes Söylüyor", body:"Sektöründe herkesin söylediği şeyleri listele. Bu kutu boş içerik alanıdır." },
+        { title:"Kimse Söylemiyor Ama Doğru", body:"Sektörün konuşmadığı ama gerçek olan şeyler. Konumlandırma cevheri burada." },
+        { title:"Senin Özgün Bakışın", body:"Yaşadıklarından, hatalarından, gözlemlerinden gelen özel görüş." }
+      ]},
+      { type:"p", text:"İyi bir konumlandırma <strong>3. sütundaki bakışla kurulur</strong>. 'Herkes gibi' söyleyen kişi 1. sütunda kalır ve unutulur. Örneğin herkes 'reklamla büyü' derken sen 'reklamdan önce ürün-market uyumu' diyorsan — 2. ve 3. sütunda konumlanıyorsun demektir." },
+      { type:"callout", title:"Karşı-Konumlandırma", text:"Zayıf strateji: 'Herkesten iyi olayım.' Güçlü strateji: <strong>'Herkesten farklı olayım.'</strong> Rakiplerin standardını yıkan cesur bir duruş her zaman 'daha iyisini yapmak'tan güçlüdür. Duruş ne kadar keskinse; kitlen ne kadar dar, sadakati ne kadar yüksek olur." },
+      { type:"h", text:"Kişisel Marka Ekseni · 4 Boyut Grafiği" },
+      { type:"cards", items:[
+        { title:"Uzmanlık Ekseni", body:"Genel ↔ Ultra-spesifik. Ne kadar dar olursan otorite o kadar keskin." },
+        { title:"Kişilik Ekseni", body:"Kurumsal ↔ Çok kişisel. Ne kadar kendin olursan bağ o kadar güçlü." },
+        { title:"Duygu Ekseni", body:"Rasyonel ↔ Duygusal. Sektöre göre denge kur." },
+        { title:"Ton Ekseni", body:"Formal ↔ Samimi. Kitlen hangi tona güveniyor?" }
+      ]},
+      { type:"h", text:"Konumlandırma Doğrulama · 5 Soruluk Test" },
+      { type:"steps", items:[
+        { title:"Söylerken heyecanlanıyor musun?", body:"'Ne iş yapıyorsun?' cevabı seni sıkıyorsa kimseyi ilgilendirmiyordur." },
+        { title:"Yabancı 60 saniyede anlıyor mu?", body:"Karmaşıksa konumlandırma değil, sunum problemin var." },
+        { title:"Rakibinden farkın net mi?", body:"'Aynı ama daha iyi' değil, 'farklı bir yaklaşım' olmalı." },
+        { title:"Kitlen 'bu bana' diyor mu?", body:"Kimseye özel değilse hiçbir kime konuşuyorsun demek değil." },
+        { title:"Bu konumlandırmayla 5 yıl büyür müsün?", body:"Sığ ise pazar seni sıkıştırır; derinliği olmalı." }
+      ]},
+      { type:"vaka",
+        title:"Beslenme Uzmanı · 'Diyetisyen'den 'Vardiyalı Hemşire Beslenmesi Uzmanı'na",
+        baglam:"Diyetisyen 4 yıldır 'sağlıklı yaşam ve beslenme' konumunda içerik üretiyor. 6.500 takipçi, ayda 3-4 danışan, farkedilmiyor.",
+        analiz:"Konumlandırma daraldı: 'Vardiyalı çalışan sağlık profesyonellerinin beslenme sistemleri'. Kim: hemşireler, doktorlar. Ne: gece vardiyasında enerji + kilo yönetimi. Farklı bakış: 'Normal saat rutinleri size uymuyor, sizin ritminize göre sistem gerekiyor'.",
+        sonuc:"9 ay sonra: 24 bin takipçi, sektörde ilk akla gelen isim oldu. Ayda 22 danışan, hastane işbirlikleri, iki tıbbi dergide köşe yazısı. Aynı kişi, aynı bilgi — sadece <em>konumlandırma</em> değişti."
+      },
+      { type:"takeaways", items:[
+        "Konumlandırma; kitlenin kafasındaki 'ilk cümle'dir, senin dediğin değil.",
+        "Tek cümlelik konumlandırma testi: kim, ne, kime, nasıl, sonuç.",
+        "Herkese hitap eden hiç kimseye hitap edemez — dar ve keskin ol.",
+        "Farklılık '3. sütunda' — herkesin söylediğinin dışında görüş.",
+        "Karşı-konumlandırma (herkesten farklı olma) 'daha iyi olma'dan güçlüdür."
+      ]}
+    ]
+  },
+
+  /* 3 */
+  { id:"nis", shortTitle:"Niş ve Otorite",
+    title:"Niş ve <em>Otorite</em> · Uzman Değil, Tanınan Ol",
+    lead:"Uzman olmak yeterli değildir; sektörde binlerce uzman var. Fark tanınan uzman olmaktır. Bunun anahtarı doğru bir niş + o niş içinde 'gidilecek adres' olma sürecidir. Niş küçük görünür ama en büyük kazancı üretir.",
+    blocks:[
+      { type:"h", text:"Niş Neden Zenginleştirir?" },
+      { type:"p", text:"Geniş konularda 'orta seviye 1 milyon' rakibin var; dar bir nişte 'ilk 3'e girmek' çok daha erişilebilir. <strong>Genişlik yarışamıyor, derinlik yarışıyor</strong>. Küçük bir gölette büyük balık olmak, okyanusta plankton olmaktan her zaman kârlıdır. Marka gücü niş içinde kurulur, sonra dışarı taşar." },
+      { type:"callout", title:"Ters Piramit Kuralı", text:"En üst seviye yazarlar, konuşmacılar, danışmanlar kariyerlerinin başında <strong>çok dar bir alanı</strong> sahiplenmişlerdir. Ters piramit: önce dar niş → otorite → daha geniş alanlar. Direkt geniş başlayan pek azı başarılı olur. Önce göletin lideri ol, sonra okyanusa aç." },
+      { type:"h", text:"Niş Bulma Kanvası · 3 Sütun Kesişimi" },
+      { type:"cards", items:[
+        { title:"Uzmanlık", body:"Ne biliyorsun? Hangi konuda saatlerce konuşabilirsin?" },
+        { title:"Tutku", body:"Uzun vadede senden kaçmayan enerji hangi konuda?" },
+        { title:"Pazar Talebi", body:"Bu konuya ödeme yapan yeterli kitle var mı?" }
+      ]},
+      { type:"p", text:"İdeal niş bu 3 dairenin <strong>kesişim noktasıdır</strong>. Sadece uzmanlık varsa yorulursun; sadece tutku varsa aç kalırsın; sadece pazar varsa özgün olamazsın. Üçünün buluştuğu yerde sürdürülebilir kişisel marka kurulur." },
+      { type:"h", text:"Niş Daraltma Egzersizi · Katman Katman İnme" },
+      { type:"steps", items:[
+        { title:"Katman 1 · Sektör", body:"Sağlık, eğitim, teknoloji, finans, moda…" },
+        { title:"Katman 2 · Alt Alan", body:"Eğitim → dil öğretimi." },
+        { title:"Katman 3 · Konu", body:"Dil öğretimi → İngilizce mülakat." },
+        { title:"Katman 4 · Kitle Segmenti", body:"İngilizce mülakat → IT mühendisleri için." },
+        { title:"Katman 5 · Sorun Anı", body:"IT mühendisleri için → uzaktan çalışma teklif alma anı." }
+      ]},
+      { type:"p", text:"5. katmandaki 'IT mühendisleri için İngilizce mülakat, özellikle uzaktan çalışma teklif alma sürecinde' — <em>bu dar niştir</em>. Bu kadar dar duran çok az kişi olduğu için sektörde ilk sırada anılırsınız." },
+      { type:"h", text:"Otorite Nasıl İnşa Edilir?" },
+      { type:"cards", items:[
+        { title:"1. İçerik Üretimi", body:"Sürekli, tutarlı, öğretici içerik. Hafızayı besler." },
+        { title:"2. Vaka Çalışmaları", body:"'Şu müşteriye şu sistemle şu sonucu ürettim' — kanıt." },
+        { title:"3. Kendi Çerçeven / Modelin", body:"'X Yöntemi', 'Y Sistemi' — isim ver, sahiplen." },
+        { title:"4. Kitap / Podcast / Konuşma", body:"Uzun form otoriteyi mühürler." },
+        { title:"5. Medya / Referans", body:"3. taraf onayı; röportaj, alıntılama, davet." },
+        { title:"6. Topluluk", body:"Etrafında biriken kitle; en güçlü otorite göstergesi." }
+      ]},
+      { type:"h", text:"'İsim Verme' Gücü" },
+      { type:"p", text:"Kendi çerçevenizi kurup <strong>isim verdiğinizde</strong> sektörde tekilleşirsiniz. 'Zamanı iyi yönetme' herkes söylüyor. 'Pomodoro Tekniği' Francesco Cirillo'ya ait. Aynı fikir; isimlendirme sahiplenmedir. Kendi çerçevenizi 3-5 adımda tanımlayıp bir isim koyun." },
+      { type:"callout", title:"Otorite Ölçütü", text:"Sektörde biri sizin adınızı duyduğunda <strong>hangi konu aklına geliyor?</strong> Bu bağ ne kadar spesifikse otoriteniz o kadar keskin. 'Ali hocam iyi biridir' düşük otorite; 'Ali hocam Excel finansal modelleme'de otoriter isim' — yüksek otorite. Adın + spesifik konu = otorite denklemi." },
+      { type:"h", text:"Otorite Zaman Çizelgesi · Gerçekçi Beklentiler" },
+      { type:"stats", items:[
+        { value:"Ay 0-6", label:"Görünmezlik. İçerik atarsın, kimse fark etmez." },
+        { value:"Ay 6-12", label:"Küçük çekirdek. İlk 100-500 gerçek takipçi." },
+        { value:"Ay 12-24", label:"Otorite kuluçkası. Sektörde adın duyulmaya başlar." },
+        { value:"24 ay+", label:"Katlanan büyüme. Fırsat sana gelir, çağrılırsın." }
+      ]},
+      { type:"h", text:"Niş İçinde Alt-Segment Ustalığı" },
+      { type:"p", text:"Nişinde bile daha da segmente ayrılabilirsin. 'IT mühendisleri için İngilizce mülakat' → alt segmentler: (1) Yeni mezunlar, (2) 3-5 yıl deneyimliler, (3) Senior/lead pozisyon geçenler, (4) Yönetici seviyesi. Her segmentin farklı içeriği + farklı ürün seviyesi olabilir. Bu, <strong>tek nişte birden fazla gelir kanalı</strong> demektir." },
+      { type:"h", text:"Niş Değiştirme · Ne Zaman Doğru?" },
+      { type:"prosncons",
+        pros:["12+ ay aynı nişte otorite kur, sonra genişle","Kitlenle birlikte büyüyen yeni konulara geç","Yan konuları katman katman aç","Kendi çerçeveni birden çok sektöre uyarlayarak taşı"],
+        cons:["6 aylık deneyim sonrası hemen değiştirmek","'İşe yaramıyor' diye 3 farklı nişi 3 ayda denemek","Aynı anda 4 nişte içerik üretmek","Ana nişten alakasız bir konuya sıçramak"]
+      },
+      { type:"vaka",
+        title:"Grafik Tasarımcı · 'Tasarım'dan 'B2B SaaS Landing Uzmanı'na",
+        baglam:"Freelancer grafik tasarımcı 6 yıl 'her şeyi tasarlıyorum' konumuyla çalıştı. Sürekli düşük ücret, sürekli müşteri arayışı, sürekli tükenmişlik.",
+        analiz:"Niş daraltıldı: 'B2B SaaS şirketleri için dönüşüm odaklı landing page tasarımı'. Kendi çerçevesi geliştirildi: 'ClearPath Framework · 6 adımlı SaaS landing modeli'. LinkedIn'de haftada 3 vaka çalışması + aylık uzun makale.",
+        sonuc:"14 ay sonra: proje ücreti 3-5.000 TL'den 45-90.000 TL'ye çıktı. Müşteri aramak yerine bekleme listesi oluştu. 3 SaaS podcast konuğu, bir tasarım kitabında bölüm. <em>Aynı beceri</em>, sadece niş + isim verme."
+      },
+      { type:"takeaways", items:[
+        "Genişlikte yarışamıyorsun, derinlikte yarışıyorsun.",
+        "İdeal niş: uzmanlık + tutku + pazar talebi kesişimi.",
+        "Katman katman inerek 5. seviyeye kadar daralt.",
+        "Kendi çerçeveni kur, isim ver, sahiplen.",
+        "Otorite 12-24 ayda kuluçkaya girer; sabır zorunlu bileşendir."
+      ]}
+    ]
+  },
+
+  /* 4 */
+  { id:"ses-gorsel", shortTitle:"Marka Sesi ve Görsel Kimlik",
+    title:"Marka Sesi ve <em>Görsel Kimlik</em> · Tutarlılık",
+    lead:"İnsanlar sizi önce görür, sonra duyar, sonra tanır. Görsel kimlik ve marka sesi bir aksesuar değil, tanınırlığın temelidir. Tutarsız marka her platformda 'kim bu?' sorusuyla karşılaşır ve hiçbir yerde tanınmaz.",
+    blocks:[
+      { type:"h", text:"Görsel Kimlik · Tanınmanın Kısayolu" },
+      { type:"p", text:"İnsan beyni yazıdan önce görsel işler. Kişisel markanız için tutarlı bir <strong>renk paleti, tipografi, fotoğraf stili, görsel imza</strong> tanınırlığı 3-4 kat hızlandırır. 'Kim bu?' sorusundan 'A, o!' anına geçiş; sürekli aynı görselleri görmekle olur." },
+      { type:"callout", title:"3 Saniye Tanıma Testi", text:"İçeriğinizin bir kısmını göstermeyip sadece küçük bir parça (rengi, yazı fontu, bir grafik) göstererek 'kim bu?' sorusuna cevap alabiliyorsanız görsel kimliğiniz oturmuştur. <strong>Coca-Cola'nın kırmızı-beyaz tonundan tanınması</strong> gibi — sizin de kendi renginiz olmalı." },
+      { type:"h", text:"Görsel Kimlik Bileşenleri" },
+      { type:"cards", items:[
+        { title:"Renk Paleti", body:"1 ana + 1-2 vurgu + 2-3 nötr renk. En fazla 5-6 renk." },
+        { title:"Tipografi", body:"1 başlık fontu + 1 metin fontu. Tutarlı boyut hiyerarşisi." },
+        { title:"Profil Fotoğrafı", body:"Aynı fotoğraf tüm platformlarda 6-12 ay boyunca. Tanınma birikir." },
+        { title:"Fotoğraf Stili", body:"Aydınlık/loş, renkli/pastel, kadraj tercihi tutarlı." },
+        { title:"Grafik Şablonları", body:"Post, kapak, sunum için sabit tasarım kalıpları." },
+        { title:"İmza Detayı", body:"Alt yazı, watermark, logo dokunuşu — her içerikte." }
+      ]},
+      { type:"h", text:"Renk Psikolojisi · Kişisel Markanız İçin" },
+      { type:"table",
+        headers:["Renk","Duygu / Etki","Kimin İçin"],
+        rows:[
+          ["Lacivert / Mavi","Güven, otorite, profesyonellik","Finans, danışmanlık, hukuk"],
+          ["Yeşil","Sağlık, büyüme, doğallık","Sağlık, sürdürülebilirlik"],
+          ["Bordo / Kahverengi","Klasik, olgun, kalıcı","Klasik danışmanlık, eğitim"],
+          ["Altın / Bej","Lüks, premium, değer","Yüksek fiyatlı hizmet"],
+          ["Turuncu","Enerji, yaratıcılık, cesaret","Yaratıcı işler, koçluk"],
+          ["Siyah + Beyaz","Minimal, modern, keskin","Tasarım, teknoloji, sanat"]
+        ]
+      },
+      { type:"h", text:"Tipografi · Sessiz Karakter Testi" },
+      { type:"p", text:"Font seçimi markanızın 'sesli olmadan söylediği şeydir'. Serif fontlar (Fraunces, Playfair, Merriweather) klasik + güvenilir hisseder. Sans-serif fontlar (Inter, Manrope, Space Grotesk) modern + net. El yazısı fontları yaratıcı + sıcak. <strong>Kişiliğinizle çelişen font markanızı bulanıklaştırır</strong>." },
+      { type:"h", text:"Profil Fotoğrafı · Sanmadığınız Kadar Önemli" },
+      { type:"steps", items:[
+        { title:"1. Yüz Netliği", body:"Küçük boyutta bile yüz net görünmeli. Uzak plan çekim tanınmayı öldürür." },
+        { title:"2. Arka Plan Sadeliği", body:"Kalabalık arka plan dikkati böler. Sade, tek renk veya bulanık." },
+        { title:"3. Işık Yönü", body:"Yumuşak, önden gelen ışık. Sertsi gölge profesyonellik hissini düşürür." },
+        { title:"4. Duygu İfadesi", body:"Ya güven verici bir gülümseme ya da düşünceli bir bakış. 'İfadesiz' fotoğraf mesafe koyar." },
+        { title:"5. Kıyafet Tonu", body:"Marka renginle uyumlu; nötr renkler her platform için güvenli." },
+        { title:"6. Tutarlılık", body:"Aynı fotoğraf tüm platformlarda 6-12 ay. Sürekli değiştirmek tanınmayı sıfırlar." }
+      ]},
+      { type:"h", text:"Marka Sesi · Yazdığında Nasıl Tanınırsın?" },
+      { type:"p", text:"Marka sesi, yazdığınız her cümlenin arkasında <strong>hangi kişilik olduğu</strong>dur. Aynı bilgiyi 3 farklı kişi 3 farklı şekilde yazar — bu farklılık, marka sesi. Doğru marka sesi ile bir yıl sonra insanlar 'imzasız bir yazıyı bile' size ait olduğunu anlayabilir." },
+      { type:"cards", items:[
+        { title:"Ton", body:"Ciddi mi, samimi mi, esprili mi, öğretici mi?" },
+        { title:"Kelime Seçimi", body:"'Değerli okuyucularım' mı, 'hey, seninle şunu paylaşayım' mı?" },
+        { title:"Cümle Uzunluğu", body:"Uzun akıcı mı; kısa, keskin mi?" },
+        { title:"Ritim", body:"Bilgi yoğun mu, hikâye ağırlıklı mı?" },
+        { title:"Sen/Siz Tercihi", body:"Samimi 'sen' mi, mesafeli 'siz' mi?" },
+        { title:"Espri Payı", body:"Ne kadar mizah? Sektöre + kişiliğine göre değişir." }
+      ]},
+      { type:"h", text:"Marka Ses Rehberi · Şablon" },
+      { type:"steps", items:[
+        { title:"5 Kelime · Markam Şudur", body:"Örn: 'Net, meraklı, samimi, veri odaklı, kışkırtıcı.'" },
+        { title:"5 Kelime · Markam Değildir", body:"'Karmaşık, formal, tatsız, moda kovalayan, yüzeysel.'" },
+        { title:"3 İfade · Kullanırım", body:"Sıkça geçen özel deyişlerim, cümle kalıplarım." },
+        { title:"3 İfade · Asla Kullanmam", body:"Klişe, korporat cümleler; ortak dilden ayrışmak için." },
+        { title:"Örnek 2 Cümle", body:"Bir yeni post yazacaksan bu 2 cümleye benzeyecek: ..." }
+      ]},
+      { type:"callout", title:"Tutarlılık > Mükemmellik", text:"Ortalama bir görsel kimlik + <strong>2 yıl tutarlı</strong> uygulama; mükemmel bir görsel kimlik + 3 aylık kaotik uygulamadan her zaman daha güçlü marka üretir. İnsan beyni tekrar eden şeyi 'tanıdık = güvenilir' olarak kodlar." },
+      { type:"h", text:"Marka Kılavuzu · Kendine Yaz" },
+      { type:"table",
+        headers:["Bölüm","Ne Yazılır","Ne İşe Yarar"],
+        rows:[
+          ["Kimlik özeti","Konumlandırma cümlesi","Her karar bu cümleden geçer"],
+          ["Renk kodları","HEX / RGB değerleri","Her tasarımcı aynı rengi kullanır"],
+          ["Font","Ad, boyut, hiyerarşi","Web + basılı + sosyal tutarlılık"],
+          ["Ses tonu","5 kelime + 5 kelime olmayan","Yazımda kılavuz"],
+          ["Fotoğraf brief","Stil, ışık, poz kuralları","Her yeni çekim aynı ruhta"],
+          ["Yasak listesi","Kullanılmayan kelime, tarz, renk","Sınırlar oluşturur"]
+        ]
+      },
+      { type:"vaka",
+        title:"Finans Danışmanı · Görsel Kimlik ile Fark Edilir Olma",
+        baglam:"Finans danışmanı 8 yıl aktif, LinkedIn'de düzenli post atıyor. Her post farklı görsel stilinde: bazen alıntı bazen infografik bazen selfie. Etkileşim düşük, tanınmıyor.",
+        analiz:"Görsel kimlik kuruldu: lacivert + krem paleti, Playfair başlık + Inter metin, 2 sabit post şablonu (alıntı + veri infografik), profil fotoğrafı yenilendi + sabitlendi. Marka sesi: 'analitik ama sıcak; veri konuşan ama yargılamayan.'",
+        sonuc:"5 ay sonra: aynı içerik konularında %170 daha fazla etkileşim, insanlar 'senin postlarını uzaktan tanıyorum' demeye başladı. LinkedIn'de niş içinde 'düzenli görülen' isimlerden biri oldu. Kimlik = tanınma."
+      },
+      { type:"takeaways", items:[
+        "Görsel kimlik bir aksesuar değil; tanınmanın kısayoludur.",
+        "Renk + tipografi + fotoğraf + şablon tutarlı olmalı; 6-12 ay değiştirme.",
+        "Marka sesi 'aynı bilgiyi 3 farklı kişinin farklı yazması'dır.",
+        "Kendi marka kılavuzunu yaz; her yeni içerik ondan geçsin.",
+        "Tutarlılık + zaman > Mükemmellik + kaos."
+      ]}
+    ]
+  },
+
+  /* 5 */
+  { id:"platform", shortTitle:"Platform Seçimi",
+    title:"Platform <em>Seçimi</em> · Nerede Görün, Nerede Sus",
+    lead:"Her platformda olmak, hiçbir platformda olmamakla aynı sonucu verir. Doğru başlangıç 1-2 platform + tam hâkimiyet + zamanla çeşitlenme. Yanlış platform seçimi 12 ay kaybettirir; doğru seçim aynı sürede otoritenin çekirdeğini kurar.",
+    blocks:[
+      { type:"h", text:"Neden Platform Seçimi Kritiktir?" },
+      { type:"p", text:"Her platformun kendi dili, kendi algoritması, kendi kitle davranışı var. LinkedIn'de işe yarayan Instagram'da yorulur; TikTok'ta viral olan LinkedIn'de tatsız. Aynı içerik, yanlış platform = boşa emek. <strong>Sen kimsin + kitlen nerede + hangi format yakışıyor</strong> — üçünün kesişimi doğru platform." },
+      { type:"h", text:"Ana Platformlar · 2026 Türkiye Haritası" },
+      { type:"cards", items:[
+        { title:"LinkedIn", body:"B2B, profesyonel kariyer, uzmanlık. Metin + carousel ağırlıklı." },
+        { title:"Instagram", body:"Görsel + video + hikaye. Kişilik, lifestyle, ürün için ideal." },
+        { title:"YouTube", body:"Uzun form otorite. 10-25 dk video. Derin ilişki." },
+        { title:"TikTok", body:"Kısa video, viral potansiyel. Genç kitle + eğitim + eğlence." },
+        { title:"Twitter / X", body:"Fikir, tartışma, thread. Metin ustaları için." },
+        { title:"Podcast", body:"Uzun içerik + sadık dinleyici. Otorite mühürleme." },
+        { title:"Substack / Newsletter", body:"E-posta ile derinlik. Sadık kitle + gelir kanalı." },
+        { title:"Kendi Blog / Site", body:"SEO + arşiv + tam kontrol. Uzun vadeli varlık." }
+      ]},
+      { type:"h", text:"Platform - Meslek Uyum Matrisi" },
+      { type:"table",
+        headers:["Sen Kimsin?","1. Platform","2. Platform","Neden"],
+        rows:[
+          ["B2B Danışman","LinkedIn","Newsletter","Karar verici + derin ilişki"],
+          ["Kariyer Koçu","LinkedIn","YouTube","Meslek + uzun otorite"],
+          ["Yaratıcı / Sanatçı","Instagram","TikTok","Görsel + genç kitle"],
+          ["Uzman Doktor / Sağlık","Instagram","YouTube","Bilgi + görsel + güven"],
+          ["Yazılım / Teknik","Twitter","YouTube","Fikir + derin öğretim"],
+          ["Girişimci / Kurucu","LinkedIn","Twitter + Podcast","Ağ + fikir + otorite"],
+          ["Eğitmen / Kurs","YouTube","Instagram","Uzun ders + görünürlük"],
+          ["Yerel Hizmet","Instagram","Google","Görsel + arama niyeti"]
+        ]
+      },
+      { type:"callout", title:"Kural · 1-2 Platforma Odaklan", text:"Yeni başlarken 5 platformda ortalama olmak, 1 platformda üstün olmaktan her zaman zayıftır. <strong>Önce 1 ana + 1 destek</strong>. 12-18 ay sonra ana platformda kırılma yaşayınca 3. platformu ekle. Başlangıçta 4+ platform = tükenmişlik + hiçbir yerde otorite." },
+      { type:"h", text:"Platform Değerlendirme · 6 Soru" },
+      { type:"steps", items:[
+        { title:"Kitlem burada mı?", body:"İdeal alıcı persona bu platformda vakit geçiriyor mu?" },
+        { title:"Hangi format doğal geliyor?", body:"Yazı, video, konuşma — hangisi seni yormaz?" },
+        { title:"Algoritma organik erişim veriyor mu?", body:"Bazı platformlar takipçi olmadan hiç göstermez." },
+        { title:"Rakiplerim hangi platformda?", body:"Rekabet varsa pazar var; hiç rakip yoksa kitle olmayabilir." },
+        { title:"Uzun vadeli mi, geçici mi?", body:"Platform 5 yıl sonra da yaşıyor olacak mı?" },
+        { title:"İş modelime uyar mı?", body:"Hedef monetizasyon platformla uyumlu mu?" }
+      ]},
+      { type:"h", text:"Her Platform · İçerik Formatı ve Ritim" },
+      { type:"table",
+        headers:["Platform","İdeal Format","Haftalık Frekans","Uzunluk"],
+        rows:[
+          ["LinkedIn","Text post + carousel","3-5","300-600 kelime"],
+          ["Instagram","Reels + carousel + story","4-6 + günlük story","15-60 sn / 8-10 slayt"],
+          ["YouTube","Uzun video","1","8-20 dk"],
+          ["TikTok","Kısa video","5-10","15-60 sn"],
+          ["Twitter","Tweet + thread","10-20","280 karakter"],
+          ["Podcast","Uzun sohbet / mono","1","30-60 dk"],
+          ["Newsletter","Uzun makale","1","800-1.500 kelime"]
+        ]
+      },
+      { type:"h", text:"İçerik Yeniden Kullanım · Content Repurposing" },
+      { type:"p", text:"Bir platformda üretilen içerik <strong>diğerlerine adaptasyonla</strong> ölçek kazanır. 20 dakikalık YouTube videosundan 6 Reels, 3 LinkedIn post, 1 blog yazısı, 5 tweet çıkabilir. Bu 1 içerik → 15 içerik demek. Adaptasyon, çoğaltma değildir; her platform dilinde <em>yeniden yazmak</em>tır." },
+      { type:"cards", items:[
+        { title:"Uzundan Kısaya", body:"YouTube video → Reels/TikTok clip; podcast → short quote" },
+        { title:"Kısadan Uzuna", body:"Twitter thread → LinkedIn makale → blog yazısı" },
+        { title:"Metin → Görsel", body:"Blog kilit fikri → Instagram carousel" },
+        { title:"Görsel → Metin", body:"Infografik → LinkedIn post açıklaması" },
+        { title:"Canlı Konuşma → Yazı", body:"Podcast bölümü → newsletter özeti" }
+      ]},
+      { type:"h", text:"'Platform Bağımlılığı' Riski" },
+      { type:"p", text:"Sosyal platform sana ait değildir; hesabın bir gecede kapanabilir, algoritma değişebilir. Bu yüzden en akıllı strateji: <strong>sosyal platformlardan e-mail listene</strong> trafik akıtmaktır. E-posta listesi + kendi web siten = 'size ait' varlık. Sosyal platform onun uzantısıdır, tersi değil. Yalnız sosyalde büyüyen marka kırılgandır." },
+      { type:"callout", title:"E-posta Listesi = Sigorta", text:"LinkedIn bir sabah hesabınızı kapatsa (nadir ama olur) 5 yılın emeği kaybolur. E-posta listenizden hala kitleye ulaşabilirsiniz. Kişisel markanızın sürdürülebilir merkezi <strong>e-posta listenizdir</strong>. Her sosyal içeriğin sonunda newsletter'a çağrı olmalı." },
+      { type:"h", text:"Platform Roadmap · 24 Ay" },
+      { type:"steps", items:[
+        { title:"Ay 1-6 · Tek Platform Ustalığı", body:"1 ana platformda haftada 3-5 içerik, kimliği oturt." },
+        { title:"Ay 6-9 · E-posta Listesi", body:"Ana platformdan aboneye trafik. Lead magnet + newsletter." },
+        { title:"Ay 9-12 · 2. Destek Platform", body:"İçerik yeniden kullanım ile ana platformdan besle." },
+        { title:"Ay 12-18 · Uzun Form Ekle", body:"YouTube veya Podcast — otorite derinliği." },
+        { title:"Ay 18-24 · Ürün / Monetizasyon", body:"Kişisel marka artık kitleye ürün / hizmet satabilir." }
+      ]},
+      { type:"vaka",
+        title:"Yönetici Koçu · 5 Platformdan 2 Platforma İnip 3× Büyüme",
+        baglam:"Koç 3 yıldır 5 platformda (LinkedIn + Instagram + YouTube + TikTok + Twitter) içerik üretiyordu. Haftada 30 saat harcıyor, hiçbir yerde 5 bin takipçi geçemedi.",
+        analiz:"Strateji: sadece LinkedIn (ana) + Newsletter (derin). Diğer platformlar tamamen bırakıldı. LinkedIn'de haftada 4 uzman post + ayda 2 uzun makale. Her postta newsletter CTA'sı.",
+        sonuc:"12 ay sonra: LinkedIn takipçi 4.500 → 32 bin, newsletter 0 → 4.200 abone. Ayda 4-6 kurumsal koçluk anlaşması geliyor. Haftalık içerik saati 30'dan 8'e düştü. <em>Az platformda derinlik, çok platformda yüzeyi</em> defalarca geçti."
+      },
+      { type:"takeaways", items:[
+        "Her platformda olmak = hiçbir platformda olmamak.",
+        "İlk 12 ay 1 ana + 1 destek platform yeterli, hatta ideal.",
+        "Kitlen + formatın + iş modelin — üçünün kesişimi doğru platform.",
+        "İçerik yeniden kullanım (repurposing) ile 1 içerik → 15 içerik.",
+        "E-posta listesi sosyal platformların sigortasıdır — her zaman merkezde."
+      ]}
+    ]
+  },
+
+  /* 6 */
+  { id:"icerik", shortTitle:"İçerik Sistemi",
+    title:"İçerik <em>Sistemi</em> · Otoriteyi İnşa Eden Kalıp",
+    lead:"Kişisel marka içerikle inşa edilir. Ancak rastgele üretilen içerik, rastgele izlenimler bırakır. Sistemli içerik, planlı bir otorite inşa eder. Bu bölüm, aylık 12-20 içeriği yorulmadan üreten kalıcı bir sistem kurar.",
+    blocks:[
+      { type:"h", text:"Otorite İçeriği · 4 Katman" },
+      { type:"cards", items:[
+        { title:"Uzmanlık (%40)", body:"Ne biliyorsan derinlemesine öğret. Klişe değil, senin fark yaklaşımın." },
+        { title:"Vaka / Deneyim (%25)", body:"Gerçek proje, gerçek sonuç. 'X sorununu Y ile çözdük'." },
+        { title:"Fikir / Manifesto (%20)", body:"Sektörle ilgili duruşun. Cesur, tartışmalı, ayırt edici." },
+        { title:"İnsan (%15)", body:"Kim olduğun; günlük, hikaye, öğrendiğin ders." }
+      ]},
+      { type:"callout", title:"Kural · Yalnız Uzman Sıkıcı", text:"Sadece uzmanlık içeriği üreten kişi 'kitap okur gibi' hissedilir. Sadece kişilik / lifestyle üreten kişi 'içerik üreticisi' olarak algılanır — uzman değil. <strong>4 katmanı dengeleyen</strong> profesyonel marka kurar." },
+      { type:"h", text:"10 Otorite İçerik Formatı" },
+      { type:"steps", items:[
+        { title:"Nasıl Yaparım (How-to)", body:"Adım adım öğretim. Kaydettirir, paylaşılır." },
+        { title:"Vaka Çalışması", body:"'X müşteride Y probleme Z sistemle yaklaştık, sonuç ne?'" },
+        { title:"Karşı Görüş / Provokatif", body:"'Herkes X diyor, aslında yanlış — çünkü…'" },
+        { title:"3-5-7 Kural Listesi", body:"'Yeni yönetici olurken kaçınılması gereken 5 hata.'" },
+        { title:"Framework / Çerçeve", body:"Kendi modelini tanıt: 'X Yöntemi · 4 basamak.'" },
+        { title:"Hikaye + Ders", body:"Kişisel bir olay + arkasındaki genel ilke." },
+        { title:"Kutlama / Milestone", body:"'12 aydır her hafta post attım — öğrendiklerim…'" },
+        { title:"Karşılaştırma", body:"'X vs Y — ne zaman hangisi?'" },
+        { title:"Q&A / Sorulan Sorular", body:"'Bu ay bana en çok sorulan 5 soru.'" },
+        { title:"Öngörü / Trend", body:"'Önümüzdeki 12 ayda bu sektörde bekliyorum…'" }
+      ]},
+      { type:"h", text:"İçerik Fikri Fabrikası · Nereden Sürekli Fikir?" },
+      { type:"cards", items:[
+        { title:"Müşteri Soruları", body:"Danışan / müşteri her hafta sana ne soruyor? Her soru bir içerik." },
+        { title:"DM Kutusu", body:"Sıcak takipçin ne merak ediyor? Direkt hammadde." },
+        { title:"Yorum Bölümleri", body:"Yaptığın post + yorumlarda sorulan — devamına içerik." },
+        { title:"Rakip Postları", body:"Karşı görüş, tamamlayıcı, farklı açı yaklaşımı." },
+        { title:"Kendi Öğrenmelerin", body:"Bu hafta öğrendiğin bir şey → içerik." },
+        { title:"Kişisel Deneyim", body:"Yaptığın bir proje, hata, karar → hikaye + ders." },
+        { title:"Sektör Haberleri", body:"Yeni bir gelişme + senin yorumun." },
+        { title:"Yorumlar / Alıntılar", body:"Bir alıntı + neden önemli açıklaması." }
+      ]},
+      { type:"h", text:"İçerik Şablon Sistemi · Toplu Üretim" },
+      { type:"steps", items:[
+        { title:"Aylık İçerik Randevusu", body:"Ayda 1 gün, 4 saat: 12-20 içerik iskeleti çıkar." },
+        { title:"Şablon Kütüphanesi", body:"5-8 sabit yazı kalıbı: her biri farklı format için." },
+        { title:"Batch Yazma", body:"Aynı gün 6-8 içeriği yaz. Yaratıcı akış ile hızlı." },
+        { title:"Görsel / Video Batch", body:"Aynı gün grafik + video çekim toplu." },
+        { title:"Planlayıcı ile Yayın", body:"Buffer, Metricool, Later — otomatik yayın." },
+        { title:"Etkileşim Zamanı", body:"Yayın sonrası 60-90 dk yorum + DM yanıtı." }
+      ]},
+      { type:"h", text:"Konu Kaynağı · Content Pillars" },
+      { type:"p", text:"3-5 sabit içerik direği (pillars) belirle — nişinle örtüşen, uzun vadede sürdürülebilir konu başlıkları. Her post en az bir direği besler. Örneğin bir kariyer koçu için: <strong>(1) Yönetici geçiş sistemleri, (2) Zor konuşmalar, (3) Ekip yönetimi, (4) Kişisel liderlik, (5) Sektör gözlemleri</strong>. Direksiz içerik yörüngesiz uydudur." },
+      { type:"callout", title:"Yalnız 'Piyasa Trendi' Yazan Kaybolur", text:"Sektör haberlerini yorumlayan içerik popülerdir ama <strong>seni tanınır yapmaz</strong> — çünkü herkes aynı haberden bahseder. Otoriteni kuran; <em>senin özel bakışın, çerçeven, deneyimin</em>. Trend içeriği %20'yi geçmemeli." },
+      { type:"h", text:"Etkileşim Kalitesi · Ne Anlama Gelir?" },
+      { type:"table",
+        headers:["Metrik","Ne Ölçer","Ne Değeri Var"],
+        rows:[
+          ["Beğeni","Yüzeysel onay","Az; algoritma sinyali"],
+          ["Yorum","İfade edilmiş ilgi","Yüksek; sohbet başlatır"],
+          ["Kaydetme","'Sonra bakacağım' niyeti","Yüksek; otorite işareti"],
+          ["Gönderme","'Biriyle paylaşmalıyım'","En yüksek; viral potansiyel"],
+          ["DM Yanıtı","Kişisel bağ","Konvertör; iş fırsatı"],
+          ["Takip Sonrası Etkileşim","Sadakat","Uzun vadeli değer"]
+        ]
+      },
+      { type:"h", text:"İçerik Ritim Kalıbı · Haftalık" },
+      { type:"steps", items:[
+        { title:"Pazartesi · Otorite (Uzmanlık)", body:"Derinlikli öğretim / framework." },
+        { title:"Salı · Story / Insight", body:"Kişisel dokunuş, hikaye + ders." },
+        { title:"Çarşamba · Vaka Çalışması", body:"'Şu proje, şu sonuç' — kanıt." },
+        { title:"Perşembe · Manifesto / Fikir", body:"Karşı görüş, sektöre bakış." },
+        { title:"Cuma · Hafta Sonu Hazırlık", body:"3-5 madde liste, bookmark içerik." },
+        { title:"Cumartesi · İnsanlık", body:"Kendinden bir kesit, günlük." },
+        { title:"Pazar · Sessizlik / Etkileşim", body:"Yorum yanıtla, DM oku." }
+      ]},
+      { type:"callout", title:"Uzun Vadeli Kural · 90 Gün Kuralı", text:"Yeni içerik stratejisini <strong>en az 90 gün</strong> sürdürmeden değerlendirme yapma. 30 gün 'çalışmıyor' hissedersin bu doğal; 90 gün sonra ilk gerçek veriler gelir; 12 ayda kırılma yaşanır. Sık strateji değişikliği kişisel markanın en büyük düşmanıdır." },
+      { type:"vaka",
+        title:"Girişimci · Sistemli İçerikle 18 Ayda 40 Bin LinkedIn Takipçi",
+        baglam:"Girişimci 4 yıldır düzensiz post atıyor; bazen haftada 3, bazen ayda 1. LinkedIn'de 800 bağlantı, hiç etkileşim, iş fırsatı yok.",
+        analiz:"4 katman içerik sistemi kuruldu: %40 uzmanlık, %25 vaka, %20 manifesto, %15 insan. 3 içerik direği: startup finans, işe alım, kurucu ruh sağlığı. Ayda bir gün batch yazım. Haftada 4 post + 2 yorum saatinden içerik.",
+        sonuc:"18 ay sonra: 40.400 takipçi (50× büyüme), ayda 8-12 yatırım / danışmanlık teklifi, üç podcast konukluğu, iki yayınevi kitap teklifi. Aynı kişi, aynı bilgi — sadece <em>sistemli içerik</em>."
+      },
+      { type:"takeaways", items:[
+        "İçerik otoritenin bina malzemesidir; rastgeleyse rastgele bir marka çıkar.",
+        "4 katman: uzmanlık, vaka, manifesto, insan — biri eksikse marka sıkıcı veya yüzeysel.",
+        "3-5 içerik direği (pillars) sabit tut; her post birini besler.",
+        "Ayda 1 batch gün + planlayıcı ile 12-20 içeriği yorulmadan üret.",
+        "En az 90 gün, ideal 12 ay stratejini değiştirme; kırılma sabırla gelir."
+      ]}
+    ]
+  },
+
+  /* 7 */
+  { id:"hikaye", shortTitle:"Kişisel Hikaye",
+    title:"Kişisel <em>Hikaye</em> · Duygusal Bağın Motoru",
+    lead:"Bilgi ikna eder, hikaye kalır. İnsan aklının %65'i hikayelerle çalışır. Uzmanlığınıza hikayeyi ekleyemezseniz sadece 'faydalı içerik üreticisi' olursunuz; kişisel marka olmak için insanın kendisine geçmek gerekir.",
+    blocks:[
+      { type:"h", text:"Neden Hikaye?" },
+      { type:"p", text:"Beynimiz kuru veri karşısında pasif; hikaye karşısında aktif. Bir istatistik verdiğinizde 1-2 beyin bölgesi çalışır; bir hikaye anlattığınızda <strong>7-8 bölge birden</strong> aktifleşir. Hikaye + veri birleştiğinde ise ikna gücü hem duygu hem mantık tarafında kurulur — bu, kişisel markanın en güçlü silahıdır." },
+      { type:"callout", title:"Nike Örneği", text:"Nike ürün özelliği anlatmaz. 'Just Do It' altında sporcu hikayeleri anlatır. Aynı ürün: <strong>hikaye markayı 40 kat değerli kılar</strong>. Kişisel markada da aynı: 'ne yaptığın' değil, 'nasıl geldiğin ve neden yapıyorsun' hikayesi insanı bağlar." },
+      { type:"h", text:"3 Ana Hikaye Türü" },
+      { type:"cards", items:[
+        { title:"Origin Story (Köken)", body:"Nereden geldin? Bu işi neden yapıyorsun? Markanın DNA'sı." },
+        { title:"Trafo Story (Dönüşüm)", body:"Bir müşteri / öğrenci nereden nereye geldi? Kitlenin arzuladığı yol." },
+        { title:"Ders Story (Öğreti)", body:"Bir olay + arkasındaki genel ilke. Uzmanlığı hikaye ile göster." }
+      ]},
+      { type:"h", text:"Kişisel Hikaye Yapısı · Klasik Kahraman Yolculuğu" },
+      { type:"steps", items:[
+        { title:"Sıradan Dünya", body:"'Ben de 5 yıl önce senin yerindeydim.' Kitle kendini görür." },
+        { title:"Çağrı / Kriz", body:"Bir olay hayatını sarstı, karar ânı geldi." },
+        { title:"Direniş", body:"İlk denemeler başarısız, kaybolmuşluk hissi." },
+        { title:"Rehber / Farkındalık", body:"Bir mentor / kitap / an — anahtar kavrama." },
+        { title:"Deneyim / Aksiyon", body:"Yeni yaklaşımı denedin, adım adım öğrendin." },
+        { title:"Dönüşüm", body:"Şimdi bulunduğun yer — kitlenin ulaşmak istediği yer." },
+        { title:"Öğreti / Miras", body:"'Şimdi geriye bakınca öğrendiğim şey…'" }
+      ]},
+      { type:"h", text:"Origin Story Örneği · Şablon" },
+      { type:"p", text:"<em>'12 yıl önce bir şirkette müdür olarak atandığımda, ilk iki ayda ekibimden 3 kişi istifa etti. Ne yaptığımı bilmiyordum. Aylarca sabah 6'da kalkıp gece 11'e kadar çalıştım — sonuç değişmedi. Bir mentor bana şunu söyledi: 'Sen ekibini yönetmiyorsun, kendi anksiyeteni yönetiyorsun'. O gün her şey değişti…'</em> — Bu tip bir açılış <strong>ilk 3 saniyede</strong> okuyanın 'bu benim hikayem' dediği andır." },
+      { type:"h", text:"Vulnerability (Kırılganlık) · Cesur Paylaşım" },
+      { type:"p", text:"En güçlü kişisel hikayeler <strong>başarı hikayeleri değil, kırılma hikayeleridir</strong>. 'Her şeyi başardım' anlatan kimseye benzemez; herkes gibi görünür. 'Şurada çok zorlandım, şu hatayı yaptım, şunu kaybettim' — bu sizi <em>gerçek + güvenilir</em> yapar. Ancak kırılganlık ölçülü olmalı: sürekli 'zavallı' hikayeler etki kaybettirir." },
+      { type:"callout", title:"Kırılganlık Formülü", text:"<strong>Kırılganlık + Ders</strong> = güç. <strong>Kırılganlık – Ders</strong> = zayıflık. Her paylaştığın zorluğun arkasında ne öğrendiğin, nasıl aştığın olmalı. Yoksa terapi seansı olur, marka olmaz. Brene Brown'ın araştırmasına göre kırılganlık aktarımı doğru dozlandığında güven 2 katına çıkar." },
+      { type:"h", text:"Hikaye Anlatım Kanalları" },
+      { type:"table",
+        headers:["Kanal","Format","Etki"],
+        rows:[
+          ["LinkedIn Post","Metin, kısa hikaye + ders","Profesyonel bağ"],
+          ["Instagram Story","Günlük mini hikayeler","Yakınlık"],
+          ["Reels / TikTok","30-60 sn görsel hikaye","Erişim + duygu"],
+          ["YouTube","Uzun hikaye + insight","Derin bağ"],
+          ["Podcast","Konuşma tarzı, akışkan","Sadakat"],
+          ["Newsletter","Uzun ve sessiz hikaye","İntim ilişki"],
+          ["Konferans / Konuşma","Canlı, dramatik","Otorite mühürleme"]
+        ]
+      },
+      { type:"h", text:"Hikaye Bankası · Kendi Envanterin" },
+      { type:"p", text:"Her hafta 1 hikaye yazmak yıllar sonra 100+ hikaye bir bank eder. Bu bankada; iş hayatın, hatalar, dönüşümler, insanlar, öğrettiklerin yatar. Hikaye bankası ne kadar zenginse içerik üretimi o kadar kolay ve o kadar özgün olur. Boş dönemlerde tekrar tekrar kullanabilirsin." },
+      { type:"steps", items:[
+        { title:"Çocukluk / İlk Anılar", body:"Karakterinin nereden geldiğini gösteren anlar." },
+        { title:"İlk İş Deneyimleri", body:"Yaptığın hatalar, öğrendiklerin, ilk kazandığın." },
+        { title:"Kariyer Dönüm Noktaları", body:"Terfi, istifa, kriz, karar anları." },
+        { title:"Müşteri / Öğrenci Hikayeleri", body:"'Şu insan şu sorunla geldi, şu oldu' — anonimleştirilmiş." },
+        { title:"Kişisel Kayıplar / Zorluklar", body:"Sağlık, aile, yol arayışı — ölçülü paylaşım." },
+        { title:"Küçük Öğrenmeler", body:"'Bu hafta öğrendiğim garip bir şey…' — sürekli beslenir." }
+      ]},
+      { type:"h", text:"Yaygın Hikaye Anlatma Hataları" },
+      { type:"prosncons",
+        pros:["Somut sahne + karakter + iç ses","Duygusal iç ses ('şöyle hissettim, aklımdan şu geçti')","Küçük detay (kahvenin soğuk oluşu, saat)","Net bir ders / öğreti","Kırılganlık + iyileşme dengesi"],
+        cons:["Genel geçer laf (herkes böyle söyler)","Sadece 'başarı' anlatan monoton dizi","Ders olmayan sürekli kırılma paylaşımı","Aşırı uzun, akışsız cümleler","Kendini üstün gösteren, kitleyi küçümseyen ton"]
+      },
+      { type:"vaka",
+        title:"Girişim Kurucusu · Hikayeyle Büyüyen Kişisel Marka",
+        baglam:"SaaS kurucusu 3 yıl teknik özellik içerikleri paylaştı. LinkedIn 4.500 takipçi, çok az etkileşim, kimse onu tanımıyordu.",
+        analiz:"İçerik dönüşümü: haftada 3 postun 1'i mutlaka hikaye + ders formatında olacak. Origin story yazıldı, öğrenci vaka hikayeleri anlatıldı. 'Girişim kurmanın kimse söylemediği 3 gerçek' gibi kırılganlık + ders içerikleri.",
+        sonuc:"14 ay: takipçi 4.500 → 46 bin (10× büyüme), profil ziyareti 15 katı, yatırım toplantı çağrısı ayda 3-5. Aynı ürün, aynı bilgi — <em>hikaye ile insan ortaya çıktı</em>. Marka insan olduğunda kitle tarafından sahiplenilir."
+      },
+      { type:"takeaways", items:[
+        "Bilgi ikna eder, hikaye kalır — insan beyni hikayelerle çalışır.",
+        "3 ana hikaye türü: origin, transformation, lesson.",
+        "Klasik kahraman yolculuğu şablonu bütün etkili hikayelerin iskeleti.",
+        "Kırılganlık + ders güçtür; sadece kırılganlık zayıflıktır.",
+        "Kendine hikaye bankası kur; sürekli içerik ürünü hâline gelir."
+      ]}
+    ]
+  },
+
+  /* 8 */
+  { id:"network", shortTitle:"Networking ve İşbirliği",
+    title:"Networking ve <em>İşbirliği</em> · Görünürlüğü Katla",
+    lead:"Sadece kendi platformunda büyümek 'organik büyüme'dir — yavaş ve doğal. Başka güçlü markaların önünde görünmek 'katlanan büyüme'dir — anahtar işbirlikleri. Doğru bir podcast konukluğu, doğru bir ortak proje; kendi başına 6 aylık organik erişimi geride bırakabilir.",
+    blocks:[
+      { type:"h", text:"Networking Neden Katlar?" },
+      { type:"p", text:"Kişisel marka bir dairenin içinde büyür — kendi kitlen. İşbirliği yaptığında <strong>başka bir dairenin</strong> içinde görünürsün. O dairenin güveni sana geçer; sıfırdan güven kurmak yerine, güvenilen bir markayla asosiye edilerek 'sıcak takdim' alırsın. Bu, ölçek olarak organikten katbekat güçlüdür." },
+      { type:"callout", title:"Halo Etkisi", text:"Psikolojide 'halo effect': bir markaya güvenen kitle, o markanın referans verdiği herkese <strong>otomatik ön-güven</strong> verir. Bir podcast'te tanınmış bir marka size 'bu konunun uzmanı bu' derse, dinleyenin kafasında sizinle ilgili olumlu bir çerçeve kurulur — daha bir söz söylemeden." },
+      { type:"h", text:"5 İşbirliği Türü · Etkiye Göre" },
+      { type:"cards", items:[
+        { title:"Podcast Konukluğu", body:"Uzun form + samimi + otorite. Dinleyicinin sadakat oranı yüksek." },
+        { title:"Konferans / Panel", body:"Canlı + prestij + net konumlandırma." },
+        { title:"Ortak İçerik", body:"Karşılıklı carousel, video, canlı yayın. Kitleler değişir." },
+        { title:"Konuk Yazı / Newsletter", body:"Uzun form + hedef kitleye giriş." },
+        { title:"Ürün / Kurs Bundle", body:"Ortak paket, çapraz satış. En derin işbirliği." }
+      ]},
+      { type:"h", text:"Kimlerle İşbirliği · Kim Değil?" },
+      { type:"table",
+        headers:["Doğru Ortak","Yanlış Ortak","Neden"],
+        rows:[
+          ["Benzer kitle, farklı ürün","Aynı kitle, aynı ürün (rakip)","Katkı yok, kanibalizm"],
+          ["Karakter uyumlu","Değer çatışan","Uzun vadede zarar"],
+          ["Kitle büyüklüğü ± 2×","Çok büyük ± 10×","İlgi orantısız"],
+          ["Uzun vadeli düşünen","Tek seferlik menfaat","Sürekli ilişki verimlidir"],
+          ["Şeffaf, itibarlı","Şüpheli, spamli","Halo tersine döner"]
+        ]
+      },
+      { type:"h", text:"Podcast Konukluğu · Otorite Turbo Motoru" },
+      { type:"p", text:"Kişisel marka için podcast konukluğu birçok kanalda en yüksek ROI'li faaliyet. 45-60 dakika samimi konuşma; dinleyicinin sizi <strong>arkadaşı gibi tanıması</strong> anlamına gelir. Bir podcast bölümü haftalarca 'evergreen' dinlenir; yıllar boyu profilinize ziyaret üretir. LinkedIn'de 100 post kadar etkili olabilir." },
+      { type:"steps", items:[
+        { title:"1. Doğru Podcast'i Bul", body:"Kitlen orada mı? Konu nişinle örtüşüyor mu?" },
+        { title:"2. Şovun 5 Bölümünü Dinle", body:"Formatı, sunucunun tarzını, dinleyici tipini anla." },
+        { title:"3. Kişisel + Değer Ayarlı Pitch", body:"'Podkastınızın X bölümü çok iyi. Konuk olarak Y konusunda katkı sunabilirim çünkü…'" },
+        { title:"4. Konuk Olarak Değer Ver", body:"'Kendi tanıtımını' yerine 'onların dinleyicisi için ne öğreteceğini' merkeze koy." },
+        { title:"5. Sonrası Paylaş + Etiketle", body:"Bölüm çıkınca kendi kanallarında paylaş; podcast'i ve sunucuyu etiketle." }
+      ]},
+      { type:"h", text:"Cold Outreach · Yabancıya Yaklaşım" },
+      { type:"p", text:"İşbirliği çoğu zaman <strong>sıcak temasla</strong> başlar — birlikte konferans, ortak arkadaş, DM üzerinden diyalog. Ancak cold (soğuk) çıkış da işe yarar; kural: <em>net değer, kişisel, kısa</em>. 'Merhaba tanışabilir miyiz' değil; 'sizin X postunuza cevaben ben Y'ye baktım, sonuçları paylaşmayı isterdim' gibi." },
+      { type:"cards", items:[
+        { title:"Kısa Ol", body:"Toplam 3-5 cümle. Uzun mesaj = okunmuyor." },
+        { title:"Onu Araştır", body:"Son postuna, projesine, kitabına referans. 'Şablon gibi' yazma." },
+        { title:"Net Değer Öner", body:"'Sana faydası olabilir çünkü…' bölümü olmalı." },
+        { title:"Küçük Somut İlk Adım", body:"'15 dk konuşma' veya 'bu iki cümle bana ne diyeceğini paylaş' — büyük istek yok." },
+        { title:"Baskı Yok", body:"'Meşgulsen sorun değil' ile bitir." }
+      ]},
+      { type:"h", text:"Networking Etkinlikleri · Kim İçin?" },
+      { type:"p", text:"Konferans, sektör buluşması, meet-up — kişisel marka için hem trafik hem itibar kaynağı. Ancak <strong>rastgele kartvizit dağıtmak</strong> boşa emek. Etkin networking için: (1) Etkinlik öncesi 3-5 hedef kişi belirle, (2) İçeriklerine bak, ilgi noktan var mı? (3) Etkinlikte kısa + spesifik konuşma, (4) 24 saat içinde LinkedIn'de takip mesajı." },
+      { type:"callout", title:"Konuşmacı Olmak · Otorite Katalizörü", text:"Konferansta <strong>konuşmacı</strong> olmak, oturan 500 kişilik dinleyiciden tamamen farklı bir statü verir. İlk konuşman küçük bir meet-up olsun — sonra 100 kişilik, sonra sektör konferansı. Bu merdiven adım adım tırmanılır. 12 ayda 3-5 konuşma hedefi gerçekçidir." },
+      { type:"h", text:"İşbirliği Ekonomisi · Karşılıklı Fayda" },
+      { type:"table",
+        headers:["Aşama","Sen Verirsin","Ortak Verir"],
+        rows:[
+          ["Erken","İçerik, zaman, ilgi","Kitle erişimi"],
+          ["Orta","Uzmanlık, çerçeve","İşbirliği, bundle"],
+          ["Olgun","Marka, tanıtım","Reklam, ortaklık geliri"],
+          ["Zirve","Referans, sponsor","Yönlendirme, birlikte yatırım"]
+        ]
+      },
+      { type:"h", text:"Yaygın Networking Hataları" },
+      { type:"prosncons",
+        pros:["Önce ver, sonra iste","Uzun vadeli ilişki merkezli düşünme","Kişisel + spesifik iletişim","Yıllara yayılan ortaklık","Küçük değerden başlayan ilişkiler"],
+        cons:["İlk mesajda 'benim şu projem var, destek verir misin' istemek","Yalnız büyük isim peşinde koşmak","Kartvizit dağıtma yaklaşımı","İlk 6 ayda dönüş beklemek","Referans verilen fırsata gitmemek"]
+      },
+      { type:"vaka",
+        title:"Danışman · 8 Podcast Konukluğu ile Otorite Sıçraması",
+        baglam:"Danışman 3 yıldır LinkedIn'de düzenli içerik atıyor. 8 bin takipçi, ayda 2-3 iş fırsatı, gelirinde plato yaşıyor.",
+        analiz:"12 aylık işbirliği planı: her ay 1 podcast konukluğu hedefi. Doğru şovlara özenli pitch ('sizin X bölümünüz sonrası Y konusuna eğildim, dinleyiciniz için katkı sunabilirim'). Her bölüm sonrası kendi kanallarında paylaşım + sunucuyu takip et.",
+        sonuc:"12 ayda 8 podcast bölümü, biri sektörün 1 numaralı podcast'inde. LinkedIn takipçi 8 → 26 bin. En değerlisi: kurumsal danışmanlık teklifleri ayda 2-3'ten 8-12'ye çıktı. Ücret 3 katına çıktı. Podcast konukluğu <em>marka otoritesinin en hızlı hızlandırıcısı</em>."
+      },
+      { type:"takeaways", items:[
+        "Kendi platformunda büyümek doğal; başka platformlarda görünmek katlanan büyüme.",
+        "Halo etkisi: güvenilen markanın referansı, sana ön-güven verir.",
+        "Podcast konukluğu en yüksek ROI'li otorite hızlandırıcısıdır.",
+        "Cold outreach: kısa, kişisel, net değerli — şablon değil.",
+        "Konuşmacı olmak dinleyici olmaktan tamamen farklı bir statü kazandırır."
+      ]}
+    ]
+  },
+
+  /* 9 */
+  { id:"gelir", shortTitle:"Monetizasyon",
+    title:"Monetizasyon · <em>Markadan Gelir</em> Kanalları",
+    lead:"Kişisel marka sonsuza kadar 'içerik atıp beğeni toplamak' değildir. Doğru zamanda para modeline geçemeyen marka; içerik yaratıcısı olarak kalır, iş modeli olamaz. Bu bölüm markanın sürdürülebilir gelirinin anahtarını verir.",
+    blocks:[
+      { type:"h", text:"Kişisel Markadan Ne Kazanılır?" },
+      { type:"p", text:"Sadece 'takipçi kazanmak' iş modeli değildir — orada kalırsan sonsuza dek içerik üretmen gerekir. Kişisel marka birçok gelir kanalının <strong>ortak besleyicisidir</strong>: hizmet, dijital ürün, kurs, kitap, sponsorluk, ortaklık, konuşma. Doğru bir marka; 4-6 farklı gelir akışını aynı anda besleyebilir." },
+      { type:"h", text:"9 Ana Gelir Kanalı" },
+      { type:"cards", items:[
+        { title:"1:1 Hizmet / Danışmanlık", body:"En hızlı başlanan model. Zaman satışı, yüksek fiyat." },
+        { title:"Grup Programı / Kurs", body:"Zamanı ölçekle, aynı içerikle çok kişiye." },
+        { title:"Dijital Ürün", body:"E-kitap, şablon, kontrol listesi — bir kez üret, tekrar sat." },
+        { title:"Abonelik / Membership", body:"Aylık ödeme; sürekli değer. Öngörülebilir gelir." },
+        { title:"Konuşma / Eğitim", body:"Şirketlere seminer, kongre konuşması. Yüksek ücret." },
+        { title:"Kitap / Yayın", body:"Prestij + telif geliri + otorite mühürü." },
+        { title:"Sponsorluk / Ortaklık", body:"Marka içerikte yer alır; kitlen büyükse geçerli." },
+        { title:"Affiliate", body:"Başkasının ürününe komisyon; nişinde araç önerileri." },
+        { title:"Ürün Marka Uzantısı", body:"Kendi fiziksel ürün / SaaS / uygulama — en büyük ölçek." }
+      ]},
+      { type:"h", text:"Monetizasyon Merdiveni · Hangi Sırayla?" },
+      { type:"steps", items:[
+        { title:"Aşama 1 · Hizmet (0-12 ay)", body:"1:1 çalışma. Kitle küçük, fiyat yüksek. Piyasayı öğren." },
+        { title:"Aşama 2 · Dijital Ürün (6-18 ay)", body:"Küçük paket / e-kitap. Ölçeğin ilk adımı." },
+        { title:"Aşama 3 · Grup Program / Kurs (12-24 ay)", body:"Aynı içeriği çoğullaştır. Zaman ekonomisi." },
+        { title:"Aşama 4 · Abonelik / Community (18-30 ay)", body:"Aylık ödeme, sadık kitle, tekrar gelir." },
+        { title:"Aşama 5 · Konuşma / Kitap (24-36 ay)", body:"Prestij + otorite mühürleme." },
+        { title:"Aşama 6 · Ürün Marka (36 ay+)", body:"Yazılım, fiziksel ürün, ortaklık." }
+      ]},
+      { type:"callout", title:"Kural · Hizmet Önce, Ürün Sonra", text:"Kurs, e-kitap, uygulama üretmek 'ne satmak istediğin' bilinmeden yapılamaz. <strong>Önce 1:1 çalış</strong> — 10-20 danışan üzerinden hangi soruların tekrarlandığını, insanların ne için para verdiğini, hangi çözümün gerçekten işe yaradığını öğren. Bu bilgi olmadan üretilen ürün, kimsenin istemediği bir üründür." },
+      { type:"h", text:"Fiyatlandırma · Değere Göre" },
+      { type:"p", text:"Kişisel markanın en büyük avantajı: <strong>fiyatlandırmayı sen belirlersin</strong>. Aynı iş — kurumsal danışman 8 bin TL, aynı işi tanınmış kişisel marka 45 bin TL alabilir. Değer maliyete değil, sağladığı sonuca göre fiyatlanır. 'Ne kadar zaman harcadım'a değil, 'ne kadar değer ürettim'e bak." },
+      { type:"table",
+        headers:["Yaklaşım","Formül","Sonuç"],
+        rows:[
+          ["Zaman bazlı","Saat × ücret","Düşük tavan, tükenmişlik"],
+          ["Proje bazlı","Skopa göre sabit","Orta"],
+          ["Değer bazlı","Sağladığın sonucun %10-30'u","Yüksek, marka gücü ile katlanır"],
+          ["Sonuç ortaklığı","Sabit + performans","Kazan-kazan, riskli"],
+          ["Retainer","Aylık sabit + öncelik","Öngörülebilir, uzun ilişki"]
+        ]
+      },
+      { type:"h", text:"3 Fiyat Paketi Psikolojisi" },
+      { type:"p", text:"Tek fiyat sunmak, satışın %50-70'ini kaybetmektir. 3 paket sunulduğunda insan beyni ortadakini tercih etme eğilimindedir. Örnek: Bronz 2.900 TL, Gümüş 7.900 TL, Altın 19.900 TL — Gümüş'ün satışı Bronz'un 3-4 katına çıkar. Ölçek: küçük paket 'kapı açan', orta paket 'para basan', premium 'anchor + istisnalar'." },
+      { type:"h", text:"Fiyat Artırma · Marka Büyüdükçe" },
+      { type:"steps", items:[
+        { title:"Her 6 ayda %20-30 artış", body:"Marka değerinle paralel artan bekleme listesi olduğunda." },
+        { title:"Kapasite Doldu Sinyali", body:"Bekleme listesi 2 aya çıktığında fiyatı artır." },
+        { title:"Yeni Segment", body:"Aynı sistemi 'kurumsal versiyon' olarak 3-5 katı fiyatla sun." },
+        { title:"Mevcut Müşteriye Grandfather", body:"Eski fiyattan devam. Sadakat kaybetme." },
+        { title:"Yeni Ürün Ekle", body:"Aynı kurstan 'VIP versiyon' — üst segment aç." }
+      ]},
+      { type:"h", text:"Bekleme Listesi · Talebin Sinyali" },
+      { type:"p", text:"Marka güçlendikçe hizmete olan talep kapasiteyi geçer. <strong>Bekleme listesi</strong> hem fiyat yükseltme sinyali hem satış motoru olur. 'Bu ay dolu, aralıkta yeri var' cümlesi aciliyet üretir. Boş takvim değil, dolu takvim + bekleme listesi kişisel markanın başarı işaretidir." },
+      { type:"callout", title:"Kural · Aç Kalmayan Marka Fiyatı Belirler", text:"Fiyat pazarlığı gücü <strong>alternatiflere bağlıdır</strong>. Bir müşterin varsa 'evet' demek zorundasın; 20 müşteri bekliyorsa 'hayır' diyebilirsin. Bekleme listesi = pazarlık gücü. Kişisel marka kurulumu bekleme listesi kazandığında monetizasyon 'satış' değil, 'seçim' hâline gelir." },
+      { type:"h", text:"Otoriteye Uygun Olmayan Gelir Kanalları" },
+      { type:"prosncons",
+        pros:["Marka değerini yükselten paketler","Kitleye net fayda sağlayan ürünler","Uzun vadeli itibar inşa eden ortaklıklar","Şeffaf fiyatlandırma","Uzmanlığınla uyumlu her gelir kalemi"],
+        cons:["Bilmediğin ürüne 'affiliate' vermek","Kitleyle uyumsuz sponsorluk kabul etmek","Aşırı indirim ile marka değeri düşürmek","Her ürüne 'evet' diyerek kimlik bulanıklığı","Hızlı para için niş dışı alan girmek"]
+      },
+      { type:"vaka",
+        title:"Yazar / Konuşmacı · 6 Kanaldan Aylık 320 Bin TL",
+        baglam:"Yazar 5 yıl LinkedIn'de içerik + 2 kitap üretmiş, tanınmış ama gelir dengesizmiş: bazı aylar 40 bin TL, bazı ayları 200 bin TL. Öngörülebilirlik yok, tükenmişlik var.",
+        analiz:"6 gelir kanalı yapılandırıldı: (1) 1:1 executive koçluk — ayda 4 slot, 20 bin TL/slot. (2) Grup programı — 3 ayda bir, 25 kişi × 8 bin TL. (3) E-kitap + şablonlar — pasif aylık ~15 bin TL. (4) Aylık sadık üye topluluk — 200 kişi × 250 TL. (5) Kurumsal konuşma — ayda 2, 25 bin TL/konuşma. (6) Kitap telifleri — aylık ~10 bin TL.",
+        sonuc:"12 ay sonra: aylık ortalama gelir 320 bin TL, ±%15 dalgalanma. Öngörülebilirlik yüksek. Çalışma saati aylık 90 saati aşmıyor. <em>Kişisel marka</em> 6 farklı gelir modelinin ortak besleyicisi olarak sürdürülebilir zenginlik üretti."
+      },
+      { type:"takeaways", items:[
+        "Kişisel marka takipçi değil, çoklu gelir kanalının ortak besleyicisidir.",
+        "Ürün önce üretilmez; önce 1:1 hizmet ile pazarı öğrenilir.",
+        "3 fiyat paketi tek fiyattan %50+ daha çok orta paket sattırır.",
+        "Fiyat değere göre, saat ücretine göre değil.",
+        "Bekleme listesi = pazarlık gücü + fiyat artırma sinyali."
+      ]}
+    ]
+  },
+
+  /* 10 */
+  { id:"itibar", shortTitle:"Uzun Vade",
+    title:"Uzun Vade · <em>Sürdürülebilirlik</em> ve İtibar",
+    lead:"12 ay sonra çoğu 'kişisel marka' hikayesi biter — yorgunluk, popülerlik kaybı, kimlik krizi. Sürdürülebilirlik marka kurmanın kendinden daha zor kısmıdır. Bu bölüm 20 yıllık markaları 20 haftalıklardan ayıran mimariyi kurar.",
+    blocks:[
+      { type:"h", text:"Uzun Vade Neden Yıkılıyor?" },
+      { type:"p", text:"Kişisel markanın en büyük düşmanı çöküş değil, <strong>yorgunluk ve kimlik kayması</strong>dır. Beğeni geldiğinde neye önem verdiğini unutmak, algoritma değişince paniklemek, sürekli 'daha fazla' baskısı, ekip olmadan tek başına taşımak — bunlar 2 yıllık markaları öldürür. Uzun vade sistemli hazırlık ve içsel disiplin ister." },
+      { type:"callout", title:"Marka = 5-10 Yıllık Zenginlik Aracı", text:"Ciddi kişisel marka <strong>5 yıllık düşünülür</strong>. 3 aylık haber döngüsüne göre karar vermez. Bu, hem içerik stratejisinin, hem monetizasyon planının, hem enerjinin uzun vadeye ölçeklenmesi demektir. Kısa vadeli düşünen marka aynı hızla parlar ve söner." },
+      { type:"h", text:"Sürdürülebilirlik Sütunları · 5 Ayak" },
+      { type:"cards", items:[
+        { title:"Enerji Yönetimi", body:"Sürekli üretim modu, tükenmişliğe götürür. Ritim + dinlenme." },
+        { title:"Sistem Otomasyonu", body:"Batch üretim, planlayıcı, ekip. Sadece 'sen' değilsin." },
+        { title:"Kimlik Sabitliği", body:"Değerlerin ne, hangi işi kabul edersin, hangisini reddedersin?" },
+        { title:"Çeşitlenen Kanallar", body:"Tek platforma bağımlı olma; e-posta, kitap, ürün destek." },
+        { title:"İtibar Sermayesi", body:"Uzun vadeli tercihler; kısa kazanç için itibarı harcama." }
+      ]},
+      { type:"h", text:"İtibar Sermayesi · En Değerli Varlık" },
+      { type:"p", text:"Bir kişisel markanın <strong>en pahalı varlığı itibar</strong>dır. Bir söz, bir eylem, bir işbirliği 2 yıllık marka birikimini bir gecede silebilir. İtibar toplandığında yavaş birikir, kaybedildiğinde hızla dağılır — bu asimetri sistemli itibar korumasını zorunlu kılar." },
+      { type:"cards", items:[
+        { title:"Sözünün Arkasında Ol", body:"Söz verdiysen tut. Küçük sözler bile itibar birikimidir." },
+        { title:"Şeffaf Ol", body:"Hata yaptığında sakla değil, öğren + paylaş." },
+        { title:"Kısa Kazanç Reddet", body:"Marka değerini düşüren sponsorluk, ürün, ortaklık — hayır de." },
+        { title:"Kaliteyi Koru", body:"'Aynı fiyata daha çok' değil, 'aynı fiyata sürekli daha iyi'." },
+        { title:"Doğru İnsanları Etrafına Al", body:"Ekip, ortak, mentor — itibarı ortaklaşa taşıdıkların." },
+        { title:"Uzun Bir Oyuncu Ol", body:"Her etkileşim; 'bu marka 5 yıl sonra da bunu yapardı' sorusundan geçmeli." }
+      ]},
+      { type:"h", text:"Tükenmişlik Sinyalleri · Tanı ve Önlem" },
+      { type:"table",
+        headers:["Sinyal","Ne Anlama Gelir","Aksiyon"],
+        rows:[
+          ["İçerik üretmek ağırlaşıyor","Enerji rezervi bitiyor","Batch üretim + planlı ara"],
+          ["Aynı konuları tekrar yazmak","İçerik direği bitti","Yeni araştırma + input"],
+          ["Kitleye küskünlük","Kimlik kaybı","Değerlerini yeniden yaz"],
+          ["Sürekli 'daha fazla' baskısı","Karşılaştırma tuzağı","Kendi hedef seti + sosyal ara"],
+          ["Uyku bozukluğu","Fiziksel tükenme","Uzman + gerçek tatil"],
+          ["Fiyat düşürme dürtüsü","İtibar krizinden kaçış","Marka değeri hatırlama"]
+        ]
+      },
+      { type:"h", text:"Ekip Kurma · Sadece Sen Değilsin" },
+      { type:"p", text:"Kişisel marka isim üzerine kurulur ama <strong>sistem ekip üzerine kurulur</strong>. İlk ekip üyesi genellikle bir <em>sanal asistan</em> — planlama, DM yanıtı, e-posta. Sonra <em>editör / içerik yardımcısı</em> — video edit, tasarım. Nihayet <em>operasyon yöneticisi</em> — kurs, üye topluluk, satış. Ekipsiz marka 2 yıldan sonra yorulur." },
+      { type:"steps", items:[
+        { title:"Ay 12-18 · Sanal Asistan", body:"Rutin işler: planlama, e-posta, DM." },
+        { title:"Ay 18-24 · İçerik Yardımcısı", body:"Video edit, carousel, tasarım." },
+        { title:"Ay 24-36 · Operasyon Yöneticisi", body:"Kurs, üye topluluk, teslim." },
+        { title:"Ay 36+ · Ortaklık / Küçük Şirket", body:"Marka artık bir 'iş' — kurumsallaş." }
+      ]},
+      { type:"h", text:"Kimlik Kayması · Sessiz Tehdit" },
+      { type:"p", text:"Marka büyüdükçe <strong>ilk gün neye değer verdiğini unutmak</strong> tehlikesi başlar. Kalabalık büyüdükçe 'ne beğenilecek, ne trend' baskısı içeriğinize sızar; özgün ses yerine algoritma odaklı ses gelir. 6 ayda bir <em>kimlik denetimi</em>: 'Bu içerik 3 yıl önce üretecek olduğum bir içerik mi?' sorusu koruma sağlar." },
+      { type:"callout", title:"Değerler Kılavuzu Yazın", text:"5-7 madde: 'Marka olarak neye evet, neye hayır diyorum?' <strong>Yazılı değerler</strong> kimlik kayması karşısında pusuladır. Örneğin: 'Sponsoru olduğum ürünü kendim kullanmadan tanıtmam. Zamanımın karşılığı olmayan işi kabul etmem. Yalan sosyal kanıt kullanmam.' Bu sınırlar itibarın koruyucusudur." },
+      { type:"h", text:"Yeniden İcat Etme · 3-5 Yılda Bir" },
+      { type:"p", text:"Her marka bir noktada 'plato' yaşar — aynı içerik aynı etki üretmez. Bu, marka için <strong>yeniden icat zamanı</strong>. Bir alt niş, yeni bir format, yeni bir hedef segment. Bill Gates 3 kere yeniden icat etti (Microsoft → filantropi → sağlık). Kişisel markalarda bu 3-5 yılda bir yaşanabilir ve doğaldır. Aynı çekirdek kimlik ile yeni bir ivme." },
+      { type:"h", text:"Uzun Vade Metrikleri" },
+      { type:"stats", items:[
+        { value:"5 yıl", label:"Ciddi kişisel markanın oturması ve yenilenmesi gereken minimum süre" },
+        { value:"%80", label:"Uzun vadeli gelirin sadık %20 çekirdek kitleden gelme oranı (Pareto)" },
+        { value:"%15-25", label:"Kazanılan gelirin markanın bakımına yeniden yatırım oranı" },
+        { value:"1-2 ay/yıl", label:"Fiziksel ve zihinsel dinlenme için ayrılan süre" }
+      ]},
+      { type:"h", text:"Miras (Legacy) Bakışı" },
+      { type:"p", text:"Uzun vadede kişisel markanın en yüksek katmanı 'ne kazandığın' değil, <strong>ne bıraktığın</strong>dır. Kitap, çerçeve, öğrettiğin nesil, kurduğun kurum. 20 yıl sonra 'X kişi bu alanı değiştirdi' diye anılmak — para değil, itibar mirası. Bu bakış markanın kısa vadeli kararlarını da yönlendirir; 'bu iş 20 yıl sonraki mirasıma katkı sunar mı?' sorusundan geçirir." },
+      { type:"vaka",
+        title:"Yönetim Danışmanı · 10 Yıllık Marka, 4 Yeniden İcat",
+        baglam:"Danışman 10 yıl önce LinkedIn'e ilk giren isimlerdendi. İlk yıl 'liderlik' konusunda içerik, 3. yıl kurumsal danışman, 5. yıl kitap yazarı, 7. yıl podcast host, 10. yılda vakfın kurucusu.",
+        analiz:"Her 3 yılda bir yeniden icat: aynı çekirdek kimlik (dürüst, veri odaklı, insan merkezli), farklı formatlar ve segmentler. Her plato anında bir üst basamağa geçti. Ekip 12 yılda büyüdü: solo → sanal asistan → 3 kişilik → 12 kişilik ekip.",
+        sonuc:"10 yıl sonunda: sektörün en tanınan isimlerinden biri, 4 kitap, 200+ podcast bölümü, iki üniversitede fahri profesör, bir vakfın kurucusu. Gelir yılda 8-10 milyon TL, ancak asıl varlığı <em>itibar mirası</em>. Uzun vade + sistemli yenilenme = kalıcı marka."
+      },
+      { type:"callout", title:"Eğitim Özeti · Sistemin Sonu", text:"10 bölüm boyunca sadece görünürlük değil — <strong>Kalabalıkta Fark Edilen Kişisel Marka Sistemi</strong> kurdunuz. Zihniyet → Kimlik → Niş → Sesi ve Görsel → Platform → İçerik → Hikaye → Networking → Monetizasyon → Uzun Vade. Her katman kendinden önceki ve sonrakiyle konuşur. Bu sistem kurulduğunda; iş sana gelir, fiyat sen belirlersin, hedefsen kabul edilirsin. Marka artık bir gösteriş değil, ömür boyu süren zenginlik varlığıdır." },
+      { type:"takeaways", items:[
+        "Kişisel marka 5-10 yıllık düşünülür; 3 ayda kararlar verilmez.",
+        "İtibar en pahalı varlık — kısa kazançlar için harcama.",
+        "Tükenmişlik sinyalleri erken görülürse önlenebilir; ekip ve batch üretim çözümdür.",
+        "6 ayda bir kimlik denetimi + yazılı değerler kılavuzu kimlik kaymasını önler.",
+        "3-5 yılda bir yeniden icat platoyu kırar; çekirdek kimlik korunarak yenilenilir.",
+        "Uzun vadenin en yüksek katmanı miras — 'ne kazandın' değil, 'ne bıraktın'."
+      ]}
+    ]
+  }
+];
+
+/* ============ Render ============ */
+const esc = (s) => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+function renderBlock(b) {
+  if (b.type === "h") return `<h3 class="ega-h3"><span class="ega-h3-bar"></span>${esc(b.text)}</h3>`;
+  if (b.type === "p") return `<p class="ega-p">${b.text}</p>`;
+  if (b.type === "callout") return `
+    <div class="ega-callout">
+      ${b.title ? `<div class="ega-callout-title">${esc(b.title)}</div>` : ""}
+      <div class="ega-callout-body">${b.text}</div>
+    </div>`;
+  if (b.type === "stats") return `
+    <div class="ega-stats">
+      ${b.items.map(it => `
+        <div class="ega-stat">
+          <div class="ega-stat-value">${esc(it.value)}</div>
+          <div class="ega-stat-label">${esc(it.label)}</div>
+        </div>`).join("")}
+    </div>`;
+  if (b.type === "cards") return `
+    <div class="ega-cards">
+      ${b.items.map((c, i) => `
+        <div class="ega-card">
+          <div class="ega-card-head">
+            <span class="ega-card-num">${String(i+1).padStart(2,"0")}</span>
+            <span class="ega-card-title">${esc(c.title)}</span>
+          </div>
+          <div class="ega-card-body">${esc(c.body)}</div>
+        </div>`).join("")}
+    </div>`;
+  if (b.type === "steps") return `
+    <div class="ega-steps">
+      ${b.items.map((s, i) => `
+        <div class="ega-step">
+          <div class="ega-step-num">${String(i+1).padStart(2,"0")}</div>
+          <div>
+            <div class="ega-step-title">${esc(s.title)}</div>
+            <div class="ega-step-body">${esc(s.body)}</div>
+          </div>
+        </div>`).join("")}
+    </div>`;
+  if (b.type === "table") {
+    const cols = b.headers.length;
+    const style = `grid-template-columns: repeat(${cols}, minmax(0,1fr));`;
+    return `
+    <div class="ega-table">
+      <div class="ega-table-row ega-table-head" style="${style}">
+        ${b.headers.map(h => `<div>${esc(h)}</div>`).join("")}
+      </div>
+      ${b.rows.map(row => `
+        <div class="ega-table-row" style="${style}">
+          ${row.map(c => `<div>${esc(c)}</div>`).join("")}
+        </div>`).join("")}
+    </div>`;
+  }
+  if (b.type === "prosncons" || b.type === "proscons") return `
+    <div class="ega-prosncons">
+      <div class="ega-pc">
+        <div class="ega-pc-title">Doğru Yaklaşımlar</div>
+        <ul>${b.pros.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+      </div>
+      <div class="ega-pc con">
+        <div class="ega-pc-title">Yaygın Hatalar</div>
+        <ul>${b.cons.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+      </div>
+    </div>`;
+  if (b.type === "vaka") return `
+    <div class="ega-vaka">
+      <div class="ega-vaka-label">Örnek Vaka</div>
+      <div class="ega-vaka-title">${esc(b.title)}</div>
+      <div class="ega-vaka-grid">
+        <div class="ega-vaka-col"><h5>Bağlam</h5><p>${esc(b.baglam)}</p></div>
+        <div class="ega-vaka-col"><h5>Analiz</h5><p>${esc(b.analiz)}</p></div>
+        <div class="ega-vaka-col"><h5>Sonuç</h5><p>${esc(b.sonuc)}</p></div>
+      </div>
+    </div>`;
+  if (b.type === "takeaways") return `
+    <div class="ega-takeaways">
+      <h4><span class="ega-h3-bar"></span>Temel Çıkarımlar</h4>
+      <ol>${b.items.map(t => `<li>${esc(t)}</li>`).join("")}</ol>
+    </div>`;
+  return "";
+}
+
+function renderHero(s) {
+  return `
+    <section class="ega-hero">
+      <div class="ega-hero-mark">Ek Gelir Akademi · Premium Edisyon</div>
+      <h1 class="ega-hero-title">Kişisel Marka Sistemi: <em>Kalabalıkta Fark Edil</em></h1>
+      <p class="ega-hero-sub">100 rakip aynı işi yapıyor, sadece 5-6'sı hatırlanıyor. Fark yetenek değil, sistemdir. Bu 10 bölümlük eğitim; marka zihniyetinden konumlandırmaya, niş ve otoriteden marka sesine, platform seçiminden içerik sistemine, hikaye anlatımından işbirliklerine, monetizasyondan uzun vade itibarına — kalabalıkta fark edilen bir kişisel markanın tam yol haritası.</p>
+      <div class="ega-hero-meta">
+        <span><strong>10</strong> Bölüm</span>
+        <span><strong>Premium</strong> Kişisel Marka Eğitimi</span>
+        <span><strong>2026</strong> Türkiye Sürümü</span>
+      </div>
+      <div class="ega-hero-rule"></div>
+      <h3 class="ega-h3"><span class="ega-h3-bar"></span>İçindekiler</h3>
+      <div class="ega-toc">
+        ${s.toc.map((t, i) => `
+          <button class="ega-toc-item" data-jump="${i+1}">
+            <span class="ega-toc-num">${String(i+1).padStart(2,"0")}</span>
+            <span class="ega-toc-label">${esc(t)}</span>
+          </button>`).join("")}
+      </div>
+    </section>`;
+}
+
+function renderSection(s, idx) {
+  if (s.hero) return renderHero(s);
+  return `
+    <section class="ega-section">
+      <div class="ega-section-eyebrow">Bölüm ${String(idx).padStart(2,"0")} · Ek Gelir Akademi</div>
+      <h2 class="ega-section-title">${s.title}</h2>
+      ${s.lead ? `<p class="ega-section-lead">${esc(s.lead)}</p>` : ""}
+      ${(s.blocks || []).map(renderBlock).join("")}
+    </section>`;
+}
+
+/* ============ State + Events ============ */
+const state = { activeIndex: 0 };
+const $nav = document.getElementById("nav");
+const $container = document.getElementById("sectionContainer");
+const $scroll = document.getElementById("scroll");
+const $progress = document.getElementById("progressFill");
+const $progressMini = document.getElementById("progressMini");
+const $prev = document.getElementById("prevBtn");
+const $next = document.getElementById("nextBtn");
+const $prevLabel = document.getElementById("prevLabel");
+const $nextLabel = document.getElementById("nextLabel");
+const $count = document.getElementById("pagerCount");
+const $sidebar = document.getElementById("sidebar");
+const $menuToggle = document.getElementById("menuToggle");
+
+SECTIONS.forEach((s, i) => {
+  const btn = document.createElement("button");
+  btn.className = "ega-nav-item";
+  btn.dataset.idx = i;
+  btn.innerHTML = `<span class="num">${String(i+1).padStart(2,"0")}</span><span class="label">${esc(s.shortTitle)}</span>`;
+  btn.addEventListener("click", () => { setActive(i); $sidebar.classList.remove("open"); });
+  $nav.appendChild(btn);
+});
+
+function setActive(i) {
+  if (i < 0 || i >= SECTIONS.length) return;
+  state.activeIndex = i;
+  $container.innerHTML = renderSection(SECTIONS[i], i);
+  $container.querySelectorAll(".ega-toc-item").forEach(el => {
+    el.addEventListener("click", () => setActive(parseInt(el.dataset.jump, 10)));
+  });
+  document.querySelectorAll(".ega-nav-item").forEach((el, idx) => {
+    el.classList.toggle("active", idx === i);
+  });
+  const pct = ((i + 1) / SECTIONS.length) * 100;
+  $progress.style.width = pct + "%";
+  if ($progressMini) $progressMini.style.width = pct + "%";
+  $prev.disabled = (i === 0);
+  $next.disabled = (i === SECTIONS.length - 1);
+  $prevLabel.textContent = i > 0 ? SECTIONS[i - 1].shortTitle : "Başlangıç";
+  $nextLabel.textContent = i < SECTIONS.length - 1 ? SECTIONS[i + 1].shortTitle : "Son bölüm";
+  $count.textContent = `${String(i+1).padStart(2,"0")} / ${String(SECTIONS.length).padStart(2,"0")}`;
+  $scroll.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+$prev.addEventListener("click", () => setActive(state.activeIndex - 1));
+$next.addEventListener("click", () => setActive(state.activeIndex + 1));
+if ($menuToggle) $menuToggle.addEventListener("click", () => $sidebar.classList.toggle("open"));
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") setActive(state.activeIndex + 1);
+  if (e.key === "ArrowLeft") setActive(state.activeIndex - 1);
+});
+
+setActive(0);
+</script>
+</body>
+</html>
